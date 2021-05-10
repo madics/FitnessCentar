@@ -1,0 +1,2 @@
+INDEX VERSION 1.131+C:\Users\Dejan\Desktop\Faks\2. godina\WP\Projekat\.metadata\.plugins\org.eclipse.jdt.core
+3573146541.index
