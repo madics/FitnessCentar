@@ -1,0 +1,9 @@
+package Projekat.FitnesCentar.entity;
+
+import java.util.ArrayList;
+
+public class Sala {
+	private int Kapacitet;
+	private String OznakaSale;
+	ArrayList<Trening> ListaTreninga;
+}
