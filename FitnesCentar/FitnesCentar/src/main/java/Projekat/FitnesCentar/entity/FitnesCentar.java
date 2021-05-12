@@ -9,7 +9,7 @@ public class FitnesCentar {
 	 private String Email;
 	 private ArrayList<Trener> ListaTrenera;
 	 private ArrayList<Sala> ListaSala;
-	 //poslednja tacka
+	 private ArrayList<Termin> RasporedOdrzavanja;
 	public String getNaziv() {
 		return Naziv;
 	}
@@ -45,5 +45,11 @@ public class FitnesCentar {
 	}
 	public void setListaSala(ArrayList<Sala> listaSala) {
 		ListaSala = listaSala;
+	}
+	public ArrayList<Termin> getRasporedOdrzavanja() {
+		return RasporedOdrzavanja;
+	}
+	public void setRasporedOdrzavanja(ArrayList<Termin> rasporedOdrzavanja) {
+		RasporedOdrzavanja = rasporedOdrzavanja;
 	}
 }

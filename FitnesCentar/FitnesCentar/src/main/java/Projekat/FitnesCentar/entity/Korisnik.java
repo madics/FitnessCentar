@@ -27,6 +27,23 @@ public class Korisnik {
 		UlogaKorisnika = ulogaKorisnika;
 		Aktivan = aktivan;
 	}
+	public void registracijaKorisnika() {
+	if(UlogaKorisnika==Uloga.TRENER) {
+		//potvrda admina
+	}else {
+	
+	}
+
+	}
+	public void prijavaKorisnika() {
+	if(Aktivan) {
+		//prijava radi
+	}else {
+		//ne radi
+	}
+	}
+	
+	
 	public String getUsername() {
 		return Username;
 	}
