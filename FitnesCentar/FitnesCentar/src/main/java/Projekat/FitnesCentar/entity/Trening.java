@@ -3,13 +3,13 @@ package Projekat.FitnesCentar.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 public class Trening {
     @Id
@@ -23,7 +23,15 @@ public class Trening {
 	private String TipTreninga;
     @Column
 	private String Trajanje;
+    @OneToMany(mappedBy = "trening", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Termin> ListaTermina= new HashSet<>();
     
+	public Set<Termin> getListaTermina() {
+		return ListaTermina;
+	}
+	public void setListaTermina(Set<Termin> listaTermina) {
+		ListaTermina = listaTermina;
+	}
 	public Long getId() {
 		return id;
 	}

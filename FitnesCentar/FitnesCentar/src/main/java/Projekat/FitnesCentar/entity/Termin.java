@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,33 +13,35 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 @Entity
 public class Termin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column
-	private Trening trening;
-	@Column
 	private Date dan;
 	@Column
 	private double cena;
-	@ManyToMany(mappedBy = "mesto_vreme")
-    private Set<Sala> listaSala = new HashSet<>();
+	
     @ManyToMany(mappedBy = "prijavljeni_treninzi")
     private Set<Clan> listaPrijavljenih= new HashSet<>();
     @ManyToMany(mappedBy = "odradjeni_treninzi")
     private Set<Clan> listaPosetioca= new HashSet<>();
+    @OneToMany(mappedBy = "termin", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<Ocena> ocene = new HashSet<>();
     @ManyToOne(fetch = FetchType.EAGER)
-    private Trener trener;
+    private Trener trener;    
+	@ManyToOne(fetch = FetchType.EAGER)
+    private Sala sala;
     @ManyToOne(fetch = FetchType.EAGER)
-    private FitnesCentar fitnesCentar;
+	private Trening trening;
     
-	public FitnesCentar getFitnesCentar() {
-		return fitnesCentar;
+	public Sala getSala() {
+		return sala;
 	}
-	public void setFitnesCentar(FitnesCentar fitnesCentar) {
-		this.fitnesCentar = fitnesCentar;
+	public void setSala(Sala sala) {
+		this.sala = sala;
 	}
 	public Set<Clan> getListaPosetioca() {
 		return listaPosetioca;
@@ -65,12 +68,7 @@ public class Termin {
 		this.id = id;
 	}
 
-    public Set<Sala> getListaSala() {
-		return listaSala;
-	}
-	public void setListaSala(Set<Sala> listaSala) {
-		this.listaSala = listaSala;
-	}
+
 
 	public Trening getTrening() {
 		return trening;

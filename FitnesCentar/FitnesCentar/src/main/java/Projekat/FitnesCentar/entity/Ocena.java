@@ -15,11 +15,11 @@ public class Ocena {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column
-	private Trening trening;
-	@Column
 	private int Ocena;
     @ManyToOne(fetch = FetchType.EAGER)
     private Clan clan;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Termin termin;
 	
 	public long getId() {
 		return id;
@@ -33,12 +33,7 @@ public class Ocena {
 	public void setClan(Clan fitnesCentar) {
 		this.clan = fitnesCentar;
 	}
-	public Trening getTrening() {
-		return trening;
-	}
-	public void setTrening(Trening trening) {
-		this.trening = trening;
-	}
+
 	public int getOcena() {
 		return Ocena;
 	}

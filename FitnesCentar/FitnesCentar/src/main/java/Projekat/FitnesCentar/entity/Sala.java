@@ -14,11 +14,10 @@ public class Sala {
 	private int Kapacitet;
 	@Column
 	private String OznakaSale;
-    @ManyToMany
-    @JoinTable(name = "mesto_vreme",
-            joinColumns = @JoinColumn(name = "sala_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
+	
+    @OneToMany(mappedBy = "sala", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Termin> listaTermina= new HashSet<>();
+    
     @ManyToOne(fetch = FetchType.EAGER)
     private FitnesCentar fitnesCentar;
     

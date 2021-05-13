@@ -1,5 +1,5 @@
 package Projekat.FitnesCentar.entity;
 
-public class Administrator {
+public class Administrator extends Korisnik {
 
 }

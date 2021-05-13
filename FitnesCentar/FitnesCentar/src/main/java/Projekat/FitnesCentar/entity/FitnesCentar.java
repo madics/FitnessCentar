@@ -27,9 +27,8 @@ public class FitnesCentar {
     private Set<Trener> ListaTrenera= new HashSet<>();
     @OneToMany(mappedBy = "fitnes_centar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Sala> ListaSala= new HashSet<>();
-    @OneToMany(mappedBy = "fitnes_centar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Termin> RasporedOdrzavanja= new HashSet<>();
-
+    
+    
 	 public long getId() {
 		return id;
 	}
@@ -47,12 +46,6 @@ public class FitnesCentar {
 	}
 	public void setListaSala(Set<Sala> listaSala) {
 		ListaSala = listaSala;
-	}
-	public Set<Termin> getRasporedOdrzavanja() {
-		return RasporedOdrzavanja;
-	}
-	public void setRasporedOdrzavanja(Set<Termin> rasporedOdrzavanja) {
-		RasporedOdrzavanja = rasporedOdrzavanja;
 	}
 	public String getNaziv() {
 		return Naziv;

@@ -23,23 +23,6 @@ public class Clan extends Korisnik {
     private Set<Termin> PrijavljeniTreninzi = new HashSet<>();
     @OneToMany(mappedBy = "clan", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Ocena> ListaOcena= new HashSet<>();
-	public Set<Termin> getOdradjeniTreninzi() {
-		return OdradjeniTreninzi;
-	}
-	public void setOdradjeniTreninzi(Set<Termin> odradjeniTreninzi) {
-		OdradjeniTreninzi = odradjeniTreninzi;
-	}
-	public Set<Termin> getPrijavljeniTreninzi() {
-		return PrijavljeniTreninzi;
-	}
-	public void setPrijavljeniTreninzi(Set<Termin> prijavljeniTreninzi) {
-		PrijavljeniTreninzi = prijavljeniTreninzi;
-	}
-	public Set<Ocena> getListaOcena() {
-		return ListaOcena;
-	}
-	public void setListaOcena(Set<Ocena> listaOcena) {
-		ListaOcena = listaOcena;
-	}
-    
+	
+   
 }
