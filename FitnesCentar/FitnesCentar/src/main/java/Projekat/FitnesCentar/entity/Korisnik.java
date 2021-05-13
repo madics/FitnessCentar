@@ -7,6 +7,7 @@ import java.sql.Date;
 enum Uloga{ADMINISTRATOR,TRENER,CLAN}
 @Entity
 public class Korisnik implements Serializable{
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,18 +30,11 @@ public class Korisnik implements Serializable{
 	@Column
 	private boolean Aktivan;
 	
-	public Korisnik(String username, String password, String ime, String prezime, String kontaktTelefon, String email,
-			Date datumRodjenja, Uloga ulogaKorisnika, boolean aktivan) {
-		super();
-		Username = username;
-		Password = password;
-		Ime = ime;
-		Prezime = prezime;
-		KontaktTelefon = kontaktTelefon;
-		Email = email;
-		DatumRodjenja = datumRodjenja;
-		UlogaKorisnika = ulogaKorisnika;
-		Aktivan = aktivan;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public Date getDatumRodjenja() {
 		return DatumRodjenja;
@@ -48,23 +42,6 @@ public class Korisnik implements Serializable{
 	public void setDatumRodjenja(Date datumRodjenja) {
 		DatumRodjenja = datumRodjenja;
 	}
-	/*
-	public void registracijaKorisnika() {
-	if(UlogaKorisnika==Uloga.TRENER) {
-		//potvrda admina
-	}else {
-	
-	}
-
-	}
-	public void prijavaKorisnika() {
-	if(Aktivan) {
-		//prijava radi
-	}else {
-		//ne radi
-	}
-	}
-	*/
 	public String getUsername() {
 		return Username;
 	}

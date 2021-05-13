@@ -1,15 +1,17 @@
 package Projekat.FitnesCentar.entity;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 @Entity
 public class Termin {
 	@Id
@@ -21,9 +23,54 @@ public class Termin {
 	private Date dan;
 	@Column
 	private double cena;
+	@ManyToMany(mappedBy = "mesto_vreme")
+    private Set<Sala> listaSala = new HashSet<>();
+    @ManyToMany(mappedBy = "prijavljeni_treninzi")
+    private Set<Clan> listaPrijavljenih= new HashSet<>();
+    @ManyToMany(mappedBy = "odradjeni_treninzi")
+    private Set<Clan> listaPosetioca= new HashSet<>();
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Trener trener;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private FitnesCentar fitnesCentar;
+    
+	public FitnesCentar getFitnesCentar() {
+		return fitnesCentar;
+	}
+	public void setFitnesCentar(FitnesCentar fitnesCentar) {
+		this.fitnesCentar = fitnesCentar;
+	}
+	public Set<Clan> getListaPosetioca() {
+		return listaPosetioca;
+	}
+	public void setListaPosetioca(Set<Clan> listaPosetioca) {
+		this.listaPosetioca = listaPosetioca;
+	}
+	public Set<Clan> getListaPrijavljenih() {
+		return listaPrijavljenih;
+	}
+	public void setListaPrijavljenih(Set<Clan> listaPrijavljenih) {
+		this.listaPrijavljenih = listaPrijavljenih;
+	}
+	public Trener getTrener() {
+		return trener;
+	}
+	public void setTrener(Trener trener) {
+		this.trener = trener;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    @ManyToMany(mappedBy = "sala_termin")
-    private Set<Sala> employees = new HashSet<>();
+    public Set<Sala> getListaSala() {
+		return listaSala;
+	}
+	public void setListaSala(Set<Sala> listaSala) {
+		this.listaSala = listaSala;
+	}
 
 	public Trening getTrening() {
 		return trening;

@@ -1,10 +1,14 @@
 package Projekat.FitnesCentar.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 public class Trening {
@@ -19,11 +23,13 @@ public class Trening {
 	private String TipTreninga;
     @Column
 	private String Trajanje;
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Trener trener;
     
-    
-    
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getNaziv() {
 		return Naziv;
 	}

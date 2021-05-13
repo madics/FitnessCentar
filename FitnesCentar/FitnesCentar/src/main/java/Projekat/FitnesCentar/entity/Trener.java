@@ -1,23 +1,29 @@
 package Projekat.FitnesCentar.entity;
 
-import java.sql.Date;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
+@Entity
 public class Trener extends Korisnik{
-	
-	private ArrayList<Trening> ListaTreninga;
-	private double ProsecnaOcena;
-	
-	
-	public Trener(String username, String password, String ime, String prezime, String kontaktTelefon, String email,
-			Date datumRodjenja, Uloga ulogaKorisnika, boolean aktivan) {
-		super(username, password, ime, prezime, kontaktTelefon, email, datumRodjenja, ulogaKorisnika, aktivan);
-		// TODO Auto-generated constructor stub
-	}
-	public ArrayList<Trening> getListaTreninga() {
+    @OneToMany(mappedBy = "trener", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Termin> ListaTreninga= new HashSet<>();
+	@Column
+    private double ProsecnaOcena;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private FitnesCentar fitnesCentar;
+	public Set<Termin> getListaTreninga() {
 		return ListaTreninga;
 	}
-	public void setListaTreninga(ArrayList<Trening> listaTreninga) {
+	public void setListaTreninga(Set<Termin> listaTreninga) {
 		ListaTreninga = listaTreninga;
 	}
 	public double getProsecnaOcena() {
@@ -26,6 +32,11 @@ public class Trener extends Korisnik{
 	public void setProsecnaOcena(double prosecnaOcena) {
 		ProsecnaOcena = prosecnaOcena;
 	}
-	
-
+	public FitnesCentar getFitnesCentar() {
+		return fitnesCentar;
+	}
+	public void setFitnesCentar(FitnesCentar fitnesCentar) {
+		this.fitnesCentar = fitnesCentar;
+	}
+    
 }

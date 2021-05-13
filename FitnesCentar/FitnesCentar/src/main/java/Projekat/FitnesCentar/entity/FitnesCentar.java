@@ -1,16 +1,59 @@
 package Projekat.FitnesCentar.entity;
 
-import java.util.ArrayList;
-
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+@Entity
 public class FitnesCentar {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	@Column
 	 private String Naziv;
-	 private String Adresa;
-	 private String BrojTelefona;
-	 private String Email;
-	 private ArrayList<Trener> ListaTrenera;
-	 private ArrayList<Sala> ListaSala;
-	 private ArrayList<Termin> RasporedOdrzavanja;
+	@Column 
+	private String Adresa;
+	@Column
+	private String BrojTelefona;
+	@Column
+	private String Email;
+    @OneToMany(mappedBy = "fitnes_centar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Trener> ListaTrenera= new HashSet<>();
+    @OneToMany(mappedBy = "fitnes_centar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Sala> ListaSala= new HashSet<>();
+    @OneToMany(mappedBy = "fitnes_centar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Termin> RasporedOdrzavanja= new HashSet<>();
+
+	 public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public Set<Trener> getListaTrenera() {
+		return ListaTrenera;
+	}
+	public void setListaTrenera(Set<Trener> listaTrenera) {
+		ListaTrenera = listaTrenera;
+	}
+	public Set<Sala> getListaSala() {
+		return ListaSala;
+	}
+	public void setListaSala(Set<Sala> listaSala) {
+		ListaSala = listaSala;
+	}
+	public Set<Termin> getRasporedOdrzavanja() {
+		return RasporedOdrzavanja;
+	}
+	public void setRasporedOdrzavanja(Set<Termin> rasporedOdrzavanja) {
+		RasporedOdrzavanja = rasporedOdrzavanja;
+	}
 	public String getNaziv() {
 		return Naziv;
 	}
@@ -35,22 +78,5 @@ public class FitnesCentar {
 	public void setEmail(String email) {
 		Email = email;
 	}
-	public ArrayList<Trener> getListaTrenera() {
-		return ListaTrenera;
-	}
-	public void setListaTrenera(ArrayList<Trener> listaTrenera) {
-		ListaTrenera = listaTrenera;
-	}
-	public ArrayList<Sala> getListaSala() {
-		return ListaSala;
-	}
-	public void setListaSala(ArrayList<Sala> listaSala) {
-		ListaSala = listaSala;
-	}
-	public ArrayList<Termin> getRasporedOdrzavanja() {
-		return RasporedOdrzavanja;
-	}
-	public void setRasporedOdrzavanja(ArrayList<Termin> rasporedOdrzavanja) {
-		RasporedOdrzavanja = rasporedOdrzavanja;
-	}
+
 }
