@@ -1,5 +1,6 @@
 package Projekat.FitnesCentar.entity;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class Trener extends Korisnik{
@@ -9,7 +10,7 @@ public class Trener extends Korisnik{
 	
 	
 	public Trener(String username, String password, String ime, String prezime, String kontaktTelefon, String email,
-			String datumRodjenja, Uloga ulogaKorisnika, boolean aktivan) {
+			Date datumRodjenja, Uloga ulogaKorisnika, boolean aktivan) {
 		super(username, password, ime, prezime, kontaktTelefon, email, datumRodjenja, ulogaKorisnika, aktivan);
 		// TODO Auto-generated constructor stub
 	}

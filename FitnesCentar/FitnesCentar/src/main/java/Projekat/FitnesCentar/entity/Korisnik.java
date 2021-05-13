@@ -1,21 +1,36 @@
 package Projekat.FitnesCentar.entity;
 
+import javax.persistence.*;
+import java.io.Serializable;
+import java.sql.Date;
+
 enum Uloga{ADMINISTRATOR,TRENER,CLAN}
-
-public class Korisnik {
-
+@Entity
+public class Korisnik implements Serializable{
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+	@Column
 	private String Username;
+	@Column
 	private String Password;
+	@Column
 	private String Ime;
+	@Column
 	private String Prezime;
+	@Column
 	private String KontaktTelefon;
+	@Column
 	private String Email;
-	private String DatumRodjenja;
+	@Column
+	private Date DatumRodjenja;
+	@Column
 	private Uloga UlogaKorisnika;
+	@Column
 	private boolean Aktivan;
 	
 	public Korisnik(String username, String password, String ime, String prezime, String kontaktTelefon, String email,
-			String datumRodjenja, Uloga ulogaKorisnika, boolean aktivan) {
+			Date datumRodjenja, Uloga ulogaKorisnika, boolean aktivan) {
 		super();
 		Username = username;
 		Password = password;
@@ -27,6 +42,13 @@ public class Korisnik {
 		UlogaKorisnika = ulogaKorisnika;
 		Aktivan = aktivan;
 	}
+	public Date getDatumRodjenja() {
+		return DatumRodjenja;
+	}
+	public void setDatumRodjenja(Date datumRodjenja) {
+		DatumRodjenja = datumRodjenja;
+	}
+	/*
 	public void registracijaKorisnika() {
 	if(UlogaKorisnika==Uloga.TRENER) {
 		//potvrda admina
@@ -42,8 +64,7 @@ public class Korisnik {
 		//ne radi
 	}
 	}
-	
-	
+	*/
 	public String getUsername() {
 		return Username;
 	}
@@ -79,12 +100,6 @@ public class Korisnik {
 	}
 	public void setEmail(String email) {
 		Email = email;
-	}
-	public String getDatumRodjenja() {
-		return DatumRodjenja;
-	}
-	public void setDatumRodjenja(String datumRodjenja) {
-		DatumRodjenja = datumRodjenja;
 	}
 	public Uloga getUlogaKorisnika() {
 		return UlogaKorisnika;

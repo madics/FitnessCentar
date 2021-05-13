@@ -3,6 +3,7 @@ package Projekat.FitnesCentar.entity;
 import java.util.ArrayList;
 
 public class FitnesCentar {
+	
 	 private String Naziv;
 	 private String Adresa;
 	 private String BrojTelefona;
