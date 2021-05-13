@@ -13,10 +13,10 @@ import javax.persistence.OneToMany;
 public class Trener extends Korisnik{
     @OneToMany(mappedBy = "trener", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Termin> ListaTreninga= new HashSet<>();
-	@Column
+	@Column(name="prosecna_ocena")
     private double ProsecnaOcena;
     @ManyToOne(fetch = FetchType.EAGER)
-    private FitnesCentar fitnesCentar;
+    private FitnesCentar fitnescentar;
     
 	public Set<Termin> getListaTreninga() {
 		return ListaTreninga;
@@ -31,10 +31,10 @@ public class Trener extends Korisnik{
 		ProsecnaOcena = prosecnaOcena;
 	}
 	public FitnesCentar getFitnesCentar() {
-		return fitnesCentar;
+		return fitnescentar;
 	}
 	public void setFitnesCentar(FitnesCentar fitnesCentar) {
-		this.fitnesCentar = fitnesCentar;
+		this.fitnescentar = fitnesCentar;
 	}
     
 }

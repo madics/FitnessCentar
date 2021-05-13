@@ -24,9 +24,9 @@ public class Termin {
 	@Column
 	private double cena;
 	
-    @ManyToMany(mappedBy = "prijavljeni_treninzi")
+    @ManyToMany(mappedBy = "PrijavljeniTreninzi")
     private Set<Clan> listaPrijavljenih= new HashSet<>();
-    @ManyToMany(mappedBy = "odradjeni_treninzi")
+    @ManyToMany(mappedBy = "OdradjeniTreninzi")
     private Set<Clan> listaPosetioca= new HashSet<>();
     @OneToMany(mappedBy = "termin", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Ocena> ocene = new HashSet<>();

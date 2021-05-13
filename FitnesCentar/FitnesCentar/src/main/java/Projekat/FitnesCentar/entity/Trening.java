@@ -5,12 +5,13 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
+@Entity
 public class Trening {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +20,7 @@ public class Trening {
 	private String Naziv;
     @Column
 	private String Opis;
-    @Column
+    @Column(name="tip_treninga")
 	private String TipTreninga;
     @Column
 	private String Trajanje;

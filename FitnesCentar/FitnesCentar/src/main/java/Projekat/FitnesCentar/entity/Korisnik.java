@@ -6,6 +6,7 @@ import java.sql.Date;
 
 enum Uloga{ADMINISTRATOR,TRENER,CLAN}
 @Entity
+@Inheritance( strategy = InheritanceType.JOINED )
 public class Korisnik implements Serializable{
 	
 	@Id
@@ -19,13 +20,13 @@ public class Korisnik implements Serializable{
 	private String Ime;
 	@Column
 	private String Prezime;
-	@Column
+	@Column (name = "kontakt_telefon")
 	private String KontaktTelefon;
 	@Column
-	private String Email;
-	@Column
-	private Date DatumRodjenja;
-	@Column
+	private String Email;;
+	@Column (name = "datum_rodjenja")
+	private Date DatumRodjenja;;
+	@Column (name = "uloga_korisnika")
 	private Uloga UlogaKorisnika;
 	@Column
 	private boolean Aktivan;

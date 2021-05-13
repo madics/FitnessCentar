@@ -12,20 +12,21 @@ public class Sala {
 	private long id;
 	@Column
 	private int Kapacitet;
-	@Column
+	@Column (name = "oznaka_sale")
 	private String OznakaSale;
 	
     @OneToMany(mappedBy = "sala", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Termin> listaTermina= new HashSet<>();
-    
     @ManyToOne(fetch = FetchType.EAGER)
-    private FitnesCentar fitnesCentar;
+    private FitnesCentar fitnescentar;
+    
+    
     
 	public FitnesCentar getFitnesCentar() {
-		return fitnesCentar;
+		return fitnescentar;
 	}
 	public void setFitnesCentar(FitnesCentar fitnesCentar) {
-		this.fitnesCentar = fitnesCentar;
+		this.fitnescentar = fitnesCentar;
 	}
 	public long getId() {
 		return id;

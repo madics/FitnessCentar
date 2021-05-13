@@ -19,13 +19,13 @@ public class FitnesCentar {
 	 private String Naziv;
 	@Column 
 	private String Adresa;
-	@Column
+	@Column (name = "broj_telefona")
 	private String BrojTelefona;
 	@Column
 	private String Email;
-    @OneToMany(mappedBy = "fitnes_centar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "fitnescentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Trener> ListaTrenera= new HashSet<>();
-    @OneToMany(mappedBy = "fitnes_centar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "fitnescentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Sala> ListaSala= new HashSet<>();
     
     
