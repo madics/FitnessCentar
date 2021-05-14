@@ -12,7 +12,11 @@ import javax.persistence.OneToMany;
 @Entity
 public class Clan extends Korisnik {
 
-    @ManyToMany
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@ManyToMany
     @JoinTable(name = "listaPosetioca",
             joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
