@@ -2,7 +2,10 @@ body {
     font-family: "Lato", sans-serif;
 	background: black;
 }
-
+label{
+	
+	color:#d69049;
+}
 
 
 .main-head{
@@ -78,6 +81,6 @@ body {
 }
 
 .btn-black{
-    background-color: #000 !important;
+    background-color: #d69049 !important;
     color: #fff;
 }

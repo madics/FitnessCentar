@@ -1,0 +1,16 @@
+body {
+background-color: aqua;}
+li{
+width:400;
+background-color: coral;
+list-style-type: none;
+	margin-left:30%
+	margin-top:5%
+}
+.center {
+  margin: auto;
+  width:400;
+  margin-left: auto;
+    margin-right: auto;
+  padding: 10px;
+}
