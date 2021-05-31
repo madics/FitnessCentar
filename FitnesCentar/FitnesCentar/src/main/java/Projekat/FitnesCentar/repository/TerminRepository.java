@@ -1,5 +1,9 @@
 package Projekat.FitnesCentar.repository;
 
-public interface TerminRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import Projekat.FitnesCentar.entity.Termin;
+
+public interface TerminRepository extends JpaRepository<Termin, Long>  {
 
 }

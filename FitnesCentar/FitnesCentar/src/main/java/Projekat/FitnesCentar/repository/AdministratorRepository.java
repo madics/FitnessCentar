@@ -1,5 +1,9 @@
 package Projekat.FitnesCentar.repository;
 
-public interface AdministratorRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import Projekat.FitnesCentar.entity.Administrator;
+
+public interface AdministratorRepository extends JpaRepository<Administrator, Long> {
 
 }

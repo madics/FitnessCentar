@@ -1,5 +1,10 @@
 package Projekat.FitnesCentar.repository;
 
-public interface TreningRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import Projekat.FitnesCentar.entity.Trening;
+
+public interface TreningRepository extends JpaRepository<Trening, Long> {
 
 }
+	

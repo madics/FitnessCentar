@@ -1,5 +1,9 @@
 package Projekat.FitnesCentar.repository;
 
-public interface SalaRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import Projekat.FitnesCentar.entity.Sala;
+
+public interface SalaRepository extends JpaRepository<Sala, Long>  {
 
 }

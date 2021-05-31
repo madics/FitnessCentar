@@ -1,5 +1,6 @@
 package Projekat.FitnesCentar.entity;
 
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -11,7 +12,13 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Trener extends Korisnik{
-    @OneToMany(mappedBy = "trener", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public Trener() {}
+	public Trener(String username, String password, String ime, String prezime, String kontaktTelefon, String email,
+			Date datumRodjenja, Korisnik.Uloga ulogaKorisnika, boolean aktivan) {
+		super(username, password, ime, prezime, kontaktTelefon, email, datumRodjenja, ulogaKorisnika, aktivan);
+		// TODO Auto-generated constructor stub
+	}
+	@OneToMany(mappedBy = "trener", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Termin> ListaTreninga= new HashSet<>();
 	@Column(name="prosecna_ocena")
     private double ProsecnaOcena;

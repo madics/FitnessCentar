@@ -1,5 +1,6 @@
 package Projekat.FitnesCentar.entity;
 
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -12,7 +13,12 @@ import javax.persistence.OneToMany;
 @Entity
 public class Clan extends Korisnik {
 
-    /**
+    public Clan(String username, String password, String ime, String prezime, String kontaktTelefon, String email,
+			Date datumRodjenja, Korisnik.Uloga ulogaKorisnika, boolean aktivan) {
+		super(username, password, ime, prezime, kontaktTelefon, email, datumRodjenja, ulogaKorisnika, aktivan);
+		// TODO Auto-generated constructor stub
+	}
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;

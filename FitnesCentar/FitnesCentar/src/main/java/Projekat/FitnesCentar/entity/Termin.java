@@ -67,9 +67,6 @@ public class Termin {
 	public void setId(long id) {
 		this.id = id;
 	}
-
-
-
 	public Trening getTrening() {
 		return trening;
 	}

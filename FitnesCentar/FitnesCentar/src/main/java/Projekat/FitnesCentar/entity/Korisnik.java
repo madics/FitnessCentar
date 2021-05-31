@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
-enum Uloga{ADMINISTRATOR,TRENER,CLAN}
 @Entity
 @Inheritance( strategy = InheritanceType.JOINED )
 public class Korisnik implements Serializable{
+	public enum Uloga{ADMINISTRATOR,TRENER,CLAN}
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +30,30 @@ public class Korisnik implements Serializable{
 	private Uloga UlogaKorisnika;
 	@Column
 	private boolean Aktivan;
-	
+	public Korisnik() {}
+	public Korisnik(String username, String password, String ime, String prezime, String kontaktTelefon, String email,
+			Date datumRodjenja, Uloga ulogaKorisnika, boolean aktivan) {
+		super();
+		Username = username;
+		Password = password;
+		Ime = ime;
+		Prezime = prezime;
+		KontaktTelefon = kontaktTelefon;
+		Email = email;
+		DatumRodjenja = datumRodjenja;
+		UlogaKorisnika = ulogaKorisnika;
+		Aktivan = aktivan;
+	}
+	public Korisnik(String username2, String password2, String ime2, String prezime2, String kontaktTelefon2,
+			String email2, Date datumRodjenja2) {
+		Username = username2;
+		Password = password2;
+		Ime = ime2;
+		Prezime = prezime2;
+		KontaktTelefon = kontaktTelefon2;
+		Email = email2;
+		DatumRodjenja = datumRodjenja2;
+	}
 	public Long getId() {
 		return id;
 	}

@@ -1,5 +1,9 @@
 package Projekat.FitnesCentar.repository;
 
-public interface ClanRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import Projekat.FitnesCentar.entity.Clan;
+
+public interface ClanRepository extends JpaRepository<Clan, Long>  {
 
 }
