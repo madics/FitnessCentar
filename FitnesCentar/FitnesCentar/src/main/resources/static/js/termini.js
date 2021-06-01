@@ -1,27 +1,26 @@
-// Prikaz svih zaposlenih
-$(document).ready(function () {    // Čeka se trenutak kada je DOM(Document Object Model) učitan da bi JS mogao sa njim da manipuliše.
-    // ajax poziv za dobavljanje svih zaposlenih sa backend-a i prikaz u tabeli
+$(document).ready(function () {   
     $.ajax({
-        type: "GET",                                                // HTTP metoda
-        url: "http://localhost:8081/api/termini",                 // URL koji se gađa
-        dataType: "json",                                           // tip povratne vrednosti
-        success: function (response) {                              // ova f-ja se izvršava posle uspešnog zahteva
-            console.log("SUCCESS:\n", response);                    // ispisujemo u konzoli povratnu vrednost radi provere
+        type: "GET",                                          
+        url: "http://localhost:8081/api/termini",             
+        dataType: "json",                                     
+        success: function (response) {                        
+            console.log("SUCCESS:\n", response);              
 
-            for (let employee of response) {                        // prolazimo kroz listu svih zaposlenih
-                let row = "<tr>";                                   // kreiramo red za tabelu
-                row += "<td>" + employee.id + "</td>";       // ubacujemo podatke jednog zaposlenog u polja
-                row += "<td>" + employee.dan + "</td>";      // ubacujemo podatke jednog zaposlenog u polja
-                row += "<td>" + employee.cena+ "</td>";
-                // kreiramo button i definisemo custom data atribut id = id zaposlenog
-                let btn = "<button class='btnSeeMore' data-id=" + employee.id + ">See More</button>";
-                row += "<td>" + btn + "</td>";                      // ubacujemo button u poslednju ćeliju reda
-                row += "</tr>";                                     // završavamo kreiranje reda
+            for (let termin of response) {                  
+                let row = "<tr>";                             
+                row += "<td>" + termin.id + "</td>";      
+                row += "<td>" + termin.dan + "</td>";     
+                row += "<td>" + termin.cena+ "</td>";
+                row += "<td>" + termin.naziv + "</td>";     
+                row += "<td>" + termin.opis + "</td>";      
+                row += "<td>" + termin.TipTreninga + "</td>";
+                row += "<td>" + termin.trajanje + "</td>";  
+                
 
-                $('#employees').append(row);                        // ubacujemo kreirani red u tabelu čiji je id = employees
+                $('#termini').append(row);                     
             }
         },
-        error: function (response) {                                // ova f-ja se izvršava posle neuspešnog zahteva
+        error: function (response) {                             
             console.log("ERROR:\n", response);
         }
     });
