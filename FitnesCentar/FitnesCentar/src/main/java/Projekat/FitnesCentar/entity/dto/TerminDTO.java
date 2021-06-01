@@ -8,7 +8,7 @@ public class TerminDTO {
 	private double cena;
 	private String naziv;
 	private String opis;
-	private String TipTreninga;
+	private String tipTreninga;
 	private String trajanje;
 	
 	
@@ -20,7 +20,7 @@ public class TerminDTO {
 		this.cena = cena;
 		this.naziv = naziv;
 		this.opis = opis;
-		this.TipTreninga = tipTreninga;
+		this.tipTreninga=tipTreninga;
 		this.trajanje = trajanje;
 	}
 
@@ -66,13 +66,6 @@ public class TerminDTO {
 		this.cena = cena;
 	}
 
-	public String getTipTreninga() {
-		return TipTreninga;
-	}
-
-	public void setTipTreninga(String tipTreninga) {
-		this.TipTreninga = tipTreninga;
-	}
 
 	public String getTrajanje() {
 		return trajanje;
@@ -80,6 +73,14 @@ public class TerminDTO {
 
 	public void setTrajanje(String trajanje) {
 		this.trajanje = trajanje;
+	}
+
+	public String getTipTreninga() {
+		return tipTreninga;
+	}
+
+	public void setTipTreninga(String tipTreninga) {
+		this.tipTreninga = tipTreninga;
 	}
 	
 }

@@ -13,9 +13,9 @@ public class Korisnik implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	@Column
-	private String Username;
+	private String username;
 	@Column
-	private String Password;
+	private String password;
 	@Column
 	private String Ime;
 	@Column
@@ -23,7 +23,7 @@ public class Korisnik implements Serializable{
 	@Column (name = "kontakt_telefon")
 	private String KontaktTelefon;
 	@Column
-	private String Email;;
+	private String email;
 	@Column (name = "datum_rodjenja")
 	private Date DatumRodjenja;;
 	@Column (name = "uloga_korisnika")
@@ -34,24 +34,24 @@ public class Korisnik implements Serializable{
 	public Korisnik(String username, String password, String ime, String prezime, String kontaktTelefon, String email,
 			Date datumRodjenja, Uloga ulogaKorisnika, boolean aktivan) {
 		super();
-		Username = username;
-		Password = password;
+		this.username = username;
+		this.password = password;
 		Ime = ime;
 		Prezime = prezime;
 		KontaktTelefon = kontaktTelefon;
-		Email = email;
+		this.email = email;
 		DatumRodjenja = datumRodjenja;
 		UlogaKorisnika = ulogaKorisnika;
 		Aktivan = aktivan;
 	}
 	public Korisnik(String username2, String password2, String ime2, String prezime2, String kontaktTelefon2,
 			String email2, Date datumRodjenja2) {
-		Username = username2;
-		Password = password2;
+		this.username = username2;
+		this.password  = password2;
 		Ime = ime2;
 		Prezime = prezime2;
 		KontaktTelefon = kontaktTelefon2;
-		Email = email2;
+		this.email = email2;
 		DatumRodjenja = datumRodjenja2;
 	}
 	public Long getId() {
@@ -67,16 +67,16 @@ public class Korisnik implements Serializable{
 		DatumRodjenja = datumRodjenja;
 	}
 	public String getUsername() {
-		return Username;
+		return username;
 	}
 	public void setUsername(String username) {
-		Username = username;
+		this.username= username;
 	}
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 	public void setPassword(String password) {
-		Password = password;
+		this.password= password;
 	}
 	public String getIme() {
 		return Ime;
@@ -97,10 +97,10 @@ public class Korisnik implements Serializable{
 		KontaktTelefon = kontaktTelefon;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public Uloga getUlogaKorisnika() {
 		return UlogaKorisnika;
