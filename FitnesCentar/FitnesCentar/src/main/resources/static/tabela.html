@@ -34,7 +34,9 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="index.html">Pocetna</a>
-        <a class="nav-link" href="RegistracijaClana.html">Registracija</a>
+        <a class="nav-link" href="RegistracijaClana.html">Registracija Clana</a>
+        <a class="nav-link" href="RegistracijaTrenera.html">Registracija Trenera</a>
+        <a class="nav-link" href="RegistracijaTrenera.html">Prijava</a>
         <a class="nav-link" href="tabela.html">Pregled</a>
         <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
       </div>
@@ -51,7 +53,17 @@
         <br><br>
         <div class="container">
 		<form >
-			<label >Sortiraj po:</label>
+				<label >Id		:</label><input type="text"  value="" />
+			<label >Dan		:</label><input type="text"  value="" /><br>
+			<label >Cena	:</label><input type="text"  value="" />
+			<label >Naziv	:</label><input type="text"  value="" /><br>
+			<label >Opis	:</label><input type="text"  value="" />
+			<label >Tip		:</label><input type="text"  value="" /><br>
+			<label >Trajanje:</label><input type="text"  value="" />
+			<input type="submit"  value="pretrazi" /><br>
+		
+
+		<label >Sortiraj po:</label>
 			<select id="sortiranjePo" onChange="getOption()" >
 				<option  value="0"		>Id		 </option>
 				<option  value="1"		>Dan	     </option>
@@ -78,6 +90,8 @@
                 </tr>                
             </table>
         </div>
+			
+		
     </div>
 
 </body>

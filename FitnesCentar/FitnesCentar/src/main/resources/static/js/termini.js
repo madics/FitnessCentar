@@ -21,7 +21,7 @@ $(document).ready(function () {
                 row += "<td>" + termin.cena+ "</td>";
                 row += "<td>" + termin.naziv + "</td>";     
                 row += "<td>" + termin.opis + "</td>";      
-                row += "<td>" + termin.TipTreninga + "</td>";
+                row += "<td>" + termin.tip + "</td>";
                 row += "<td>" + termin.trajanje + "</td>";  
                 
 

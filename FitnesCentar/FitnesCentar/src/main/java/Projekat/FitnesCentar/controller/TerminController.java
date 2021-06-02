@@ -25,10 +25,10 @@ import java.util.List;
 public class TerminController {
 
     private final TerminService terminService;
-    private final TreningServiceImpl treningService;
+    private final TreningService treningService;
     // constructor-based dependency injection
     @Autowired
-    public TerminController(TerminService terminService,TreningServiceImpl treningService) {
+    public TerminController(TerminService terminService,TreningService treningService) {
         this.terminService= terminService;
         this.treningService= treningService;
     }

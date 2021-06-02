@@ -1,5 +1,5 @@
 
-$(document).on("submit", "#noviClanForma", function (event) {     
+$(document).on("submit", "#noviTrenerForma", function (event) {     
     event.preventDefault();                            	             // sprečavamo automatsko slanje zahteva da bismo pokupili (i validirali) podatke iz forme
 
     // preuzimamo vrednosti unete u formi
@@ -20,11 +20,11 @@ $(document).on("submit", "#noviClanForma", function (event) {
 	telefon		:KontaktTelefon    ,
 	email		:Email             ,
 	datum		:DatumRodjenja
-	}
+	} 
 	
     $.ajax({
         type: "POST",                                             
-        url: "http://localhost:8081/api/RegistracijaClana",   
+        url: "http://localhost:8081/api/RegistracijaTrenera",   
         dataType: "json",                                         
         contentType: "application/json",   
         data: JSON.stringify(noviKorisnik),                       

@@ -8,19 +8,19 @@ public class TerminDTO {
 	private double cena;
 	private String naziv;
 	private String opis;
-	private String tipTreninga;
+	private String tip;
 	private String trajanje;
 	
 	
 	
-	public TerminDTO(long id, Date dan, double cena, String naziv, String opis, String tipTreninga, String trajanje) {
+	public TerminDTO(long id, Date dan, double cena, String naziv, String opis, String tip, String trajanje) {
 		super();
 		this.id = id;
 		this.dan = dan;
 		this.cena = cena;
 		this.naziv = naziv;
 		this.opis = opis;
-		this.tipTreninga=tipTreninga;
+		this.tip=tip;
 		this.trajanje = trajanje;
 	}
 
@@ -76,11 +76,11 @@ public class TerminDTO {
 	}
 
 	public String getTipTreninga() {
-		return tipTreninga;
+		return tip;
 	}
 
-	public void setTipTreninga(String tipTreninga) {
-		this.tipTreninga = tipTreninga;
+	public void setTipTreninga(String tip) {
+		this.tip = tip;
 	}
 	
 }

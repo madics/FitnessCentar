@@ -13,7 +13,6 @@ import Projekat.FitnesCentar.entity.Clan;
 import Projekat.FitnesCentar.entity.Korisnik;
 import Projekat.FitnesCentar.entity.dto.ClanDTO;
 import Projekat.FitnesCentar.service.ClanService;
-import Projekat.FitnesCentar.service.imp.ClanServiceImpl;
 
 
 
@@ -37,9 +36,9 @@ public ResponseEntity<ClanDTO> createClan(@RequestBody ClanDTO clanDTO) throws E
             clanDTO.getPassword (),
             clanDTO.getIme(),
             clanDTO.getPrezime(),
-            clanDTO.getKontaktTelefon (),
+            clanDTO.getTelefon (),
             clanDTO.getEmail (),
-            clanDTO.getDatumRodjenja (),
+            clanDTO.getDatum(),
             Korisnik.Uloga.CLAN,
             true
     		);

@@ -6,29 +6,29 @@ import Projekat.FitnesCentar.entity.Korisnik;
 
 public class ClanDTO {
 	private Long id;
-	private String Username;
-	private String Password;
-	private String Ime;
-	private String Prezime;
-	private String KontaktTelefon;
-	private String Email;
-	private Date DatumRodjenja;
-	private Korisnik.Uloga UlogaKorisnika;
-	private boolean Aktivan;
+	private String username;
+	private String password;
+	private String ime;
+	private String prezime;
+	private String telefon;
+	private String email;
+	private Date datum;
+	private Korisnik.Uloga uloga;
+	private boolean aktivan;
 	public ClanDTO() {}
-	public ClanDTO(Long id, String username, String password, String ime, String prezime, String kontaktTelefon,
-			String email, Date datumRodjenja, Korisnik.Uloga ulogaKorisnika, boolean aktivan) {
+	public ClanDTO(Long id, String username, String password, String ime, String prezime, String telefon,
+			String email, Date datum, Korisnik.Uloga uloga, boolean aktivan) {
 		super();
 		this.id = id;
-		Username = username;
-		Password = password;
-		Ime = ime;
-		Prezime = prezime;
-		KontaktTelefon = kontaktTelefon;
-		Email = email;
-		DatumRodjenja = datumRodjenja;
-		UlogaKorisnika = ulogaKorisnika;
-		Aktivan = aktivan;
+		this.username = username;
+		this.password = password;
+		this.ime = ime;
+		this.prezime = prezime;
+		this.telefon= telefon;
+		this.email = email;
+		this.datum = datum;
+		this.uloga= uloga;
+		this.aktivan = aktivan;
 	}
 	public Long getId() {
 		return id;
@@ -37,57 +37,57 @@ public class ClanDTO {
 		this.id = id;
 	}
 	public String getUsername() {
-		return Username;
+		return username;
 	}
 	public void setUsername(String username) {
-		Username = username;
+		this.username = username;
 	}
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 	public String getIme() {
-		return Ime;
+		return ime;
 	}
 	public void setIme(String ime) {
-		Ime = ime;
+		this.ime = ime;
 	}
 	public String getPrezime() {
-		return Prezime;
+		return prezime;
 	}
 	public void setPrezime(String prezime) {
-		Prezime = prezime;
+		this.prezime = prezime;
 	}
-	public String getKontaktTelefon() {
-		return KontaktTelefon;
+	public String getTelefon() {
+		return telefon;
 	}
-	public void setKontaktTelefon(String kontaktTelefon) {
-		KontaktTelefon = kontaktTelefon;
+	public void setTelefon(String telefon) {
+		this.telefon = telefon;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
-	public Date getDatumRodjenja() {
-		return DatumRodjenja;
+	public Date getDatum() {
+		return datum;
 	}
-	public void setDatumRodjenja(Date datumRodjenja) {
-		DatumRodjenja = datumRodjenja;
+	public void setDatum(Date datum) {
+		this.datum = datum;
 	}
-	public Korisnik.Uloga getUlogaKorisnika() {
-		return UlogaKorisnika;
+	public Korisnik.Uloga getUloga() {
+		return uloga;
 	}
-	public void setUlogaKorisnika(Korisnik.Uloga ulogaKorisnika) {
-		UlogaKorisnika = ulogaKorisnika;
+	public void setUloga(Korisnik.Uloga uloga) {
+		this.uloga = uloga;
 	}
 	public boolean isAktivan() {
-		return Aktivan;
+		return aktivan;
 	}
 	public void setAktivan(boolean aktivan) {
-		Aktivan = aktivan;
+		this.aktivan = aktivan;
 	}
 }

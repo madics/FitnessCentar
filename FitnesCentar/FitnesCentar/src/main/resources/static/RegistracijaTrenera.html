@@ -1,10 +1,15 @@
 <html>
 <head>
+    <meta charset="UTF-8">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css\RegistracijaTrenera.css"/>
+
+<script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/RegistracijaTrenera.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -54,6 +59,7 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">Registrujte se kao trener</h3>
+								<form id="noviTrenerForma">
                                 <div class="row register-form">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -68,18 +74,6 @@
                                         <div class="form-group">
                                             <input type="password" class="form-control"  placeholder="Šifra*" value="" />
                                         </div>
-                                    <!--<div class="form-group">
-                                            <div class="maxl">
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="male" checked>
-                                                    <span> Male </span> 
-                                                </label>
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="female">
-                                                    <span>Female </span> 
-                                                </label>
-                                            </div>
-										</div>-->
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -89,19 +83,12 @@
                                             <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Kontakt telefon*" value="" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Datum rođenja*" value="" />
+                                            <input type="date" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Datum rođenja*" value="" />
                                         </div>
-									   <!-- Date Picker Input
-										<div class="form-group mb-4">
-											<div class="datepicker date input-group p-0 shadow-sm">
-												<input type="text" placeholder="Datum rođenja*" class="form-control py-4 px-4" id="reservationDate">
-												<div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-clock-o"></i></span></div>
-											</div>
-										</div>
-										-->
                                         <input type="submit" class="btnRegister"  value="Registrujte se"/>
                                     </div>
                                 </div>
+								</form>
                             </div>
                             <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <h3  class="register-heading">Apply as a Hirer</h3>
@@ -128,14 +115,6 @@
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
-                                                <option>What is your Birthdate?</option>
-                                                <option>What is Your old Phone Number</option>
-                                                <option>What is your Pet Name?</option>
-                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="`Answer *" value="" />

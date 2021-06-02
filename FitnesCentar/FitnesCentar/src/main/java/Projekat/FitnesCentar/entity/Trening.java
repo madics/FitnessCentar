@@ -17,13 +17,13 @@ public class Trening {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
-	private String Naziv;
+	private String naziv;
     @Column
-	private String Opis;
+	private String opis;
     @Column(name="tip_treninga")
-	private String TipTreninga;
+	private String tip;
     @Column
-	private String Trajanje;
+	private String trajanje;
     @OneToMany(mappedBy = "trening", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Termin> ListaTermina= new HashSet<>();
     
@@ -40,27 +40,27 @@ public class Trening {
 		this.id = id;
 	}
 	public String getNaziv() {
-		return Naziv;
+		return naziv;
 	}
 	public void setNaziv(String naziv) {
-		Naziv = naziv;
+		this.naziv = naziv;
 	}
 	public String getOpis() {
-		return Opis;
+		return opis;
 	}
 	public void setOpis(String opis) {
-		Opis = opis;
+		this.opis = opis;
 	}
 	public String getTipTreninga() {
-		return TipTreninga;
+		return tip;
 	}
-	public void setTipTreninga(String tipTreninga) {
-		TipTreninga = tipTreninga;
+	public void setTipTreninga(String tip) {
+		this.tip = tip;
 	}
 	public String getTrajanje() {
-		return Trajanje;
+		return trajanje;
 	}
 	public void setTrajanje(String trajanje) {
-		Trajanje = trajanje;
+		this.trajanje = trajanje;
 	}
 }

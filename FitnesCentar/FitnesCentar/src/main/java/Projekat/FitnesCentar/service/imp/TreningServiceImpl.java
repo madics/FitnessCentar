@@ -16,7 +16,7 @@ public class TreningServiceImpl implements TreningService{
     public TreningServiceImpl(TreningRepository treningRepository) {
         this.treningRepository = treningRepository;
     }
-
+   @Override
    public Trening findById(long id) {
         Trening trening = this.treningRepository.findById(id);
         return trening;
