@@ -53,16 +53,40 @@
         <br><br>
         <div class="container">
 		<form >
-				<label >Id		:</label><input type="text"  value="" />
-			<label >Dan		:</label><input type="text"  value="" /><br>
-			<label >Cena	:</label><input type="text"  value="" />
-			<label >Naziv	:</label><input type="text"  value="" /><br>
-			<label >Opis	:</label><input type="text"  value="" />
-			<label >Tip		:</label><input type="text"  value="" /><br>
-			<label >Trajanje:</label><input type="text"  value="" />
-			<input type="submit"  value="pretrazi" /><br>
 		
+		<label >Pretrazi:</label>
+			<br>
+			<label >Dan		:</label>
+			<select id="dani" onChange="" >
+			<option  value=""></option>
+			</select>			<br>
 
+			<label >Cena	:</label>
+			<select id="cene" onChange="" >
+			<option  value=""></option>
+			</select>			<br>
+
+			<label >Naziv	:</label>
+			<select id="nazivi" onChange="" >
+			<option  value=""></option>
+			</select>			<br>
+
+			<label >Opis	:</label>
+			<select id="opisi" onChange="" >
+			<option  value=""></option>
+			</select>			<br>
+
+			<label >Tip		:</label>
+			<select id="tipovi" onChange="" >
+			<option  value=""></option>
+			</select>			<br>
+
+			<label >Trajanje:</label>
+			<select id="trajanja" onChange="" >
+			<option  value=""></option>
+			</select>
+			
+		<br>
 		<label >Sortiraj po:</label>
 			<select id="sortiranjePo" onChange="getOption()" >
 				<option  value="0"		>Id		 </option>

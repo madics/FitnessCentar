@@ -21,7 +21,6 @@
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Trener"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Sala"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Ocena"/>
-    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.repository.TerminRepository"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
     <fullyQualifiedTypeName name="java.awt.PageAttributes.MediaType"/>
@@ -42,7 +41,6 @@
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Uloga"/>
     <fullyQualifiedTypeName name="javax.persistence.Entity"/>
-    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Korisnik.Uloga"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.repository.TreningRepository"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.TreningService"/>
@@ -54,7 +52,9 @@
     <fullyQualifiedTypeName name="net.bytebuddy.build.HashCodeAndEqualsPlugin.ValueHandling.Sort"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.Sort"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.ClanService"/>
-    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Korisnik"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.imp.KorisnikServiceImpl"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Korisnik.Uloga"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Korisnik"/>
 </qualifiedTypeNameHistroy>

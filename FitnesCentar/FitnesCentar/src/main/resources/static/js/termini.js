@@ -5,14 +5,6 @@ $(document).ready(function () {
         dataType: "json",                                     
         success: function (response) {                        
             console.log("SUCCESS:\n", response);
-			// switch(expression) {
-			// case x:
-			// break;
-			// case y:
-			// break;
-			// default:
-			// }
-			// response.sort((a, b) => (a.cena > b.cena) ? 1 : -1);
 			
             for (let termin of response) {                  
                 let row = "<tr>";                             
@@ -23,9 +15,15 @@ $(document).ready(function () {
                 row += "<td>" + termin.opis + "</td>";      
                 row += "<td>" + termin.tip + "</td>";
                 row += "<td>" + termin.trajanje + "</td>";  
-                
-
-                $('#termini').append(row);                     
+                $('#termini').append(row);                  
+				
+				popuniSelect(termin.dan      ,"dani"     );
+				popuniSelect(termin.cena     ,"cene"     );
+				popuniSelect(termin.naziv    ,"nazivi"   );
+				popuniSelect(termin.opis     ,"opisi"    );
+				popuniSelect(termin.tip      ,"tipovi"   );
+				popuniSelect(termin.trajanje ,"trajanja" );
+				
             }
         },
         error: function (response) {                             
@@ -34,11 +32,16 @@ $(document).ready(function () {
     });
 });
 
+        function popuniSelect(polje,id) {
+				var opt = document.createElement('option');
+				opt.appendChild( document.createTextNode(polje) );
+				opt.value = polje;
+				if ($("#"+id+" option[value='"+polje+"']").length == 0)document.getElementById(id).appendChild(opt);
+		}
+		
         function getOption() {
             polje= document.querySelector('#sortiranjePo').value;
 			nacin= document.querySelector('#nacinSortiranja').value;
-			console.log(polje+" "+nacin);
-			<!-- document.querySelector('.output').textContent= output; -->
 			var table, rows, switching, i, x, y;
 			
 					table = document.getElementById("termini");
