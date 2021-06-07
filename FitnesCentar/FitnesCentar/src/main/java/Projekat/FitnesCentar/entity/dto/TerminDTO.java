@@ -10,12 +10,23 @@ public class TerminDTO {
 	private String opis;
 	private String tip;
 	private String trajanje;
-	
+
 	
 	
 	public TerminDTO(long id, Date dan, double cena, String naziv, String opis, String tip, String trajanje) {
 		super();
 		this.id = id;
+		this.dan = dan;
+		this.cena = cena;
+		this.naziv = naziv;
+		this.opis = opis;
+		this.tip=tip;
+		this.trajanje = trajanje;
+	}
+	
+	
+	public TerminDTO(Date dan, double cena, String naziv, String opis, String tip, String trajanje) {
+		super();
 		this.dan = dan;
 		this.cena = cena;
 		this.naziv = naziv;

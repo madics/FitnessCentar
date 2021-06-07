@@ -17,11 +17,11 @@ $(document).ready(function () {
                 row += "<td>" + termin.trajanje + "</td>";  
                 $('#termini').append(row);                  
 				
-				popuniSelect(termin.dan      ,"dani"     );
-				popuniSelect(termin.cena     ,"cene"     );
-				popuniSelect(termin.naziv    ,"nazivi"   );
-				popuniSelect(termin.opis     ,"opisi"    );
-				popuniSelect(termin.tip      ,"tipovi"   );
+				popuniSelect(termin.dan      ,"dani		"     );
+				popuniSelect(termin.cena     ,"cene		"     );
+				popuniSelect(termin.naziv    ,"nazivi	"   );
+				popuniSelect(termin.opis     ,"opisi	"    );
+				popuniSelect(termin.tip      ,"tipovi	"   );
 				popuniSelect(termin.trajanje ,"trajanja" );
 				
             }
@@ -65,9 +65,47 @@ $(document).ready(function () {
 							}
 					}
 		}
+
+$(document).on("submit", "#pretragaTermina", function (event) {     
+    event.preventDefault();                            	             // sprečavamo automatsko slanje zahteva da bismo pokupili (i validirali) podatke iz forme
+
+    // preuzimamo vrednosti unete u formi
+    let Dan			 =$("#dani		").val();
+    let Cena		 =$("#cene		").val();
+    let Naziv		 =$("#nazivi	").val();
+    let Opis	 	 =$("#opisi		").val();
+    let Tip	 		 =$("#tipovi	").val();
+    let Trajanje	 =$("#trajanja	").val();
+	
+    let zaPretragu = {
 		
+	dan			:Dan	,		 
+	cena		:Cena	,	 
+	naziv		:Naziv	,	 
+	opis		:Opis	,	 
+	tip			:Tip	,		 
+	trajanje	:Trajanje
+	}
+	
+    $.ajax({
+        type: "POST",                                             
+        url: "http://localhost:8081/api/RegistracijaClana",   
+        dataType: "json",                                         
+        contentType: "application/json",   
+        data: JSON.stringify(zaPretragu),                       
+        success: function (response) {   
+		console.log("Ime je "+zaPretragu.ime);                         
+		console.log(response);
+		alert("Korisnik " +response.ime +" " + response.id+ " je uspešno kreiran!");
+            // window.location.href = "RegistracijaClana.html";           	     
+        },
+        error: function () {                                      				 
+            alert("greska!!!!");
+        }
+    });
+});
 		
-		
+
 		
 		
 		
