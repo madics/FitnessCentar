@@ -2,6 +2,9 @@ package Projekat.FitnesCentar.entity.dto;
 
 import java.util.Date;
 
+import Projekat.FitnesCentar.entity.Termin;
+import Projekat.FitnesCentar.entity.Trening;
+
 public class TerminDTO {
 	private long id;
 	private Date dan;
@@ -24,7 +27,8 @@ public class TerminDTO {
 		this.trajanje = trajanje;
 	}
 	
-	
+/*
+ */
 	public TerminDTO(Date dan, double cena, String naziv, String opis, String tip, String trajanje) {
 		super();
 		this.dan = dan;
@@ -34,7 +38,15 @@ public class TerminDTO {
 		this.tip=tip;
 		this.trajanje = trajanje;
 	}
-
+	public TerminDTO(Trening trening,Termin termin) {
+		this.id = termin.getId();
+		this.dan = termin.getDan();
+		this.cena = termin.getCena();
+		this.naziv = trening.getNaziv();
+		this.opis = trening.getOpis();
+		this.tip=trening.getTipTreninga();
+		this.trajanje = trening.getTrajanje();
+	}
 	public String getNaziv() {
 		return naziv;
 	}

@@ -37,6 +37,8 @@ INSERT INTO TERMIN (cena,dan,sala_id,trener_id,trening_id
 ) VALUES (10,'2004-12-22',2,1,2);
 INSERT INTO TERMIN (cena,dan,sala_id,trener_id,trening_id
 ) VALUES (1520,'2004-12-22',2,1,1);
+INSERT INTO TERMIN (cena,dan,sala_id,trener_id,trening_id
+) VALUES (1520,'2035-12-22',2,1,1);
  
 
 INSERT INTO CLAN (id

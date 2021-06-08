@@ -13,16 +13,16 @@ $(document).ready(function () {
                 row += "<td>" + termin.cena+ "</td>";
                 row += "<td>" + termin.naziv + "</td>";     
                 row += "<td>" + termin.opis + "</td>";      
-                row += "<td>" + termin.tip + "</td>";
+                row += "<td>" + termin.tipTreninga + "</td>";
                 row += "<td>" + termin.trajanje + "</td>";  
-                $('#termini').append(row);                  
+                $('#termini').append(row);              
 				
-				popuniSelect(termin.dan      ,"dani		"     );
-				popuniSelect(termin.cena     ,"cene		"     );
-				popuniSelect(termin.naziv    ,"nazivi	"   );
-				popuniSelect(termin.opis     ,"opisi	"    );
-				popuniSelect(termin.tip      ,"tipovi	"   );
-				popuniSelect(termin.trajanje ,"trajanja" );
+				 popuniSelect(termin.dan,"dani"     );
+				 popuniSelect(termin.cena,"cene"     );
+				 popuniSelect(termin.naziv,"nazivi"   );
+				 popuniSelect(termin.opis,"opisi"    );
+				 popuniSelect(termin.tipTreninga,"tipovi"   );
+				 popuniSelect(termin.trajanje ,"trajanja" );
 				
             }
         },
@@ -67,9 +67,8 @@ $(document).ready(function () {
 		}
 
 $(document).on("submit", "#pretragaTermina", function (event) {     
-    event.preventDefault();                            	             // sprečavamo automatsko slanje zahteva da bismo pokupili (i validirali) podatke iz forme
+    event.preventDefault();                            	            
 
-    // preuzimamo vrednosti unete u formi
     let Dan			 =$("#dani		").val();
     let Cena		 =$("#cene		").val();
     let Naziv		 =$("#nazivi	").val();
@@ -83,22 +82,36 @@ $(document).on("submit", "#pretragaTermina", function (event) {
 	cena		:Cena	,	 
 	naziv		:Naziv	,	 
 	opis		:Opis	,	 
-	tip			:Tip	,		 
+	tipTreninga :Tip	,		 
 	trajanje	:Trajanje
 	}
 	
     $.ajax({
         type: "POST",                                             
-        url: "http://localhost:8081/api/RegistracijaClana",   
+        url: "http://localhost:8081/api/termini",   
         dataType: "json",                                         
         contentType: "application/json",   
         data: JSON.stringify(zaPretragu),                       
         success: function (response) {   
-		console.log("Ime je "+zaPretragu.ime);                         
-		console.log(response);
-		alert("Korisnik " +response.ime +" " + response.id+ " je uspešno kreiran!");
-            // window.location.href = "RegistracijaClana.html";           	     
-        },
+		console.log(response);                         
+		
+			$("#termini tr").remove(); 
+			let row = "<tr><th>Id</th><th>Dan</th><th>Cena</th><th>Naziv</th><th>Opis</th><th>Tip</th><th>Trajanje</th></tr>"; 
+			$('#termini').append(row);   
+			
+			for (let termin of response) {                  
+				row = "<tr>";                             
+				row += "<td>" + termin.id + "</td>";      
+				row += "<td>" + termin.dan + "</td>";     
+				row += "<td>" + termin.cena+ "</td>";
+				row += "<td>" + termin.naziv + "</td>";     
+				row += "<td>" + termin.opis + "</td>";      
+				row += "<td>" + termin.tipTreninga + "</td>";
+				row += "<td>" + termin.trajanje + "</td>";  
+				$('#termini').append(row);                  
+				
+			}
+		},
         error: function () {                                      				 
             alert("greska!!!!");
         }

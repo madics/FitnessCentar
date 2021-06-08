@@ -3,15 +3,10 @@ package Projekat.FitnesCentar.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import Projekat.FitnesCentar.entity.Termin;
-import Projekat.FitnesCentar.entity.Korisnik;
-import Projekat.FitnesCentar.entity.Termin;
 import Projekat.FitnesCentar.entity.Trening;
-import Projekat.FitnesCentar.entity.dto.TerminDTO;
 import Projekat.FitnesCentar.entity.dto.TerminDTO;
 import Projekat.FitnesCentar.service.TerminService;
 import Projekat.FitnesCentar.service.TreningService;
-import Projekat.FitnesCentar.service.imp.TreningServiceImpl;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -58,29 +53,49 @@ public class TerminController {
         return new ResponseEntity<>(terminDTOS, HttpStatus.OK);
     }
     
-
+/*
+ */
 @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE)
-public ResponseEntity<List<TerminDTO>> createTermin(@RequestBody TerminDTO terminDTO) throws Exception {
+public ResponseEntity<List<TerminDTO>> filterTermin(@RequestBody TerminDTO terminPretraga) throws Exception {
 	
-	/*TerminDTO terminPretraga = new TerminDTO(
-			terminPretraga.getDan(), 
-			terminPretraga.getCena(),
-			terminPretraga.getNaziv(),
-			terminPretraga.getOpis(),
-			terminPretraga.getTipTreninga(),
-			terminPretraga.getTrajanje());
-	*/
    	List<Termin> listaTermina = this.terminService.findAll();
     List<TerminDTO> terminDTOS = new ArrayList<>();
-
-    Trening trening;
+    /*
+*/
+    TerminDTO terminDTO;
     for (Termin termin: listaTermina) {
+    	terminDTO=new TerminDTO(this.treningService.findById((termin.getTrening()).getId()),termin);
+    	terminDTOS.add(terminDTO);
     	
-    	trening=this.treningService.findById((termin.getTrening()).getId());
     	
-
+    	if(terminPretraga.getCena()!=-1//da li pretrazuje
+    			&&terminPretraga.getCena()!=terminDTO.getCena()//po cemu pretrazuje
+    			)terminDTOS.remove(terminDTO);
+    	
+    	if(terminPretraga.getDan()!=null//da li pretrazuje
+    			&&!terminPretraga.getDan().equals(terminDTO.getDan())//po cemu pretrazuje
+    			)terminDTOS.remove(terminDTO);
+    	
+    	
+    	if(!terminPretraga.getOpis().equals("")//da li pretrazuje
+    			&&!terminPretraga.getOpis().equals(terminDTO.getOpis())//po cemu pretrazuje
+    			)terminDTOS.remove(terminDTO);
+    	
+    	if(!terminPretraga.getNaziv().equals("")//da li pretrazuje
+				&&!terminPretraga.getNaziv().equals(terminDTO.getNaziv())//po cemu pretrazuje
+				)terminDTOS.remove(terminDTO);
+		
+    	if(!terminPretraga.getTipTreninga().equals("")//da li pretrazuje
+    			&&!terminPretraga.getTipTreninga().equals(terminDTO.getTipTreninga())//po cemu pretrazuje
+    			)terminDTOS.remove(terminDTO);
+    	
+    	if(!terminPretraga.getTrajanje().equals("")//da li pretrazuje
+				&&!terminPretraga.getTrajanje().equals(terminDTO.getTrajanje())//po cemu pretrazuje
+				)terminDTOS.remove(terminDTO);
+    		 
     }
+  
     return new ResponseEntity<>(terminDTOS, HttpStatus.OK);
 
 }

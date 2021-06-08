@@ -52,7 +52,7 @@
         <h1>Termini</h1>
         <br><br>
         <div class="container">
-		<form id="pretragaTermina">
+	<form id="pretragaTermina">
 		
 		<label >Pretrazi:</label>
 			<br>
@@ -63,7 +63,7 @@
 
 			<label >Cena	:</label>
 			<select id="cene" onChange="" >
-			<option  value=""></option>
+			<option  value="-1"></option>
 			</select>			<br>
 
 			<label >Naziv	:</label>
@@ -85,7 +85,10 @@
 			<select id="trajanja" onChange="" >
 			<option  value=""></option>
 			</select>
-			
+			<br>
+			  <input type="submit" value="Pretrazi">
+	</form>
+	<form>
 		<br>
 		<label >Sortiraj po:</label>
 			<select id="sortiranjePo" onChange="getOption()" >
@@ -103,7 +106,8 @@
 			</select>
 		</form>
 		<table id="termini">
-                <tr>
+		
+                <thead>
                     <th>Id			</th>
                     <th>Dan			</th>
                     <th>Cena			</th>
@@ -111,7 +115,7 @@
                     <th>Opis		</th>
                     <th>Tip				</th>
                     <th>Trajanje		</th>
-                </tr>                
+                </thead>                
             </table>
         </div>
 			
