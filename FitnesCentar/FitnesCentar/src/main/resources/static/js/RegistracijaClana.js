@@ -1,8 +1,6 @@
 
 $(document).on("submit", "#noviClanForma", function (event) {     
-    event.preventDefault();                            	             // sprečavamo automatsko slanje zahteva da bismo pokupili (i validirali) podatke iz forme
-
-    // preuzimamo vrednosti unete u formi
+    event.preventDefault();              
     let Ime     = $("#ime").val();
     let Prezime      =$("#prezime").val();
     let Username            =$("#username").val();
@@ -32,7 +30,7 @@ $(document).on("submit", "#noviClanForma", function (event) {
 		console.log("Ime je "+noviKorisnik.ime);                         
 		console.log(response);
 		alert("Korisnik " +response.ime +" " + response.id+ " je uspešno kreiran!");
-            // window.location.href = "RegistracijaClana.html";           	     
+             window.location.href = "Login.html";           	     
         },
         error: function () {                                      				 
             alert("greska!!!!");

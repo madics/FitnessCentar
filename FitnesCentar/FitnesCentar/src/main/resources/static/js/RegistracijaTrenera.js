@@ -10,6 +10,8 @@ $(document).ready(function () {
 			
             for (let fc of response)
 				 popuniSelect(fc.naziv,fc.id,"fitnesCentar");
+			 document.getElementById("fcPlaceHolder").style.display = "none";
+
         },
         error: function (response) {                             
             console.log("ERROR:\n", response);
@@ -25,9 +27,7 @@ $(document).ready(function () {
 		}
 
 $(document).on("submit", "#noviTrenerForma", function (event) {     
-    event.preventDefault();                            	             // sprečavamo automatsko slanje zahteva da bismo pokupili (i validirali) podatke iz forme
-
-    // preuzimamo vrednosti unete u formi
+    event.preventDefault();                           
     let Ime     = $("#ime").val();
     let Prezime      =$("#prezime").val();
     let Username            =$("#username").val();
@@ -58,7 +58,7 @@ $(document).on("submit", "#noviTrenerForma", function (event) {
         success: function (response) {   
 		console.log(response);
 		alert("Korisnik " +response.ime +" " + response.id+ " radi u"+response.fcid);
-            // window.location.href = "RegistracijaClana.html";           	     
+             window.location.href = "Login.html";           	     
         },
         error: function () {                                      				 
             alert("greska!!!!");

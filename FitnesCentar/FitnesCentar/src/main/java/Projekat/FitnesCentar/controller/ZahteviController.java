@@ -8,6 +8,7 @@ import Projekat.FitnesCentar.service.TrenerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class ZahteviController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TrenerDTO>> getTreneri() {
+    public ResponseEntity<List<TrenerDTO>> getTreneri() {//prikaz trenera za odobravanje
 
     	List<Trener> listaTrenera = this.trenerService.findAll();
         List<TrenerDTO> trenerDTOS = new ArrayList<>();
@@ -49,4 +50,27 @@ public class ZahteviController {
         }
         return new ResponseEntity<>(trenerDTOS, HttpStatus.OK);
     }
-    }
+
+	@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE,produces= MediaType.APPLICATION_JSON_VALUE,value="/{id}")
+	public ResponseEntity<TrenerDTO> updateTrener(@PathVariable("id") Long trenerId,
+	  @Validated @RequestBody Long id) throws Exception {
+		
+	     Trener trener = this.trenerService.findOne(id);
+	     Trener updatedTrener = trenerService.update(trener);
+	     TrenerDTO noviTrenerDTO = new TrenerDTO(
+				updatedTrener.getId(),
+				updatedTrener.getFitnesCentar().getId(),
+				 updatedTrener.getUsername(),
+				 updatedTrener.getPassword (),
+				 updatedTrener.getIme(),
+				 updatedTrener.getPrezime(),
+				updatedTrener.getKontaktTelefon (),
+				updatedTrener.getEmail (),
+				updatedTrener.getDatumRodjenja (),
+				updatedTrener.getUlogaKorisnika(),
+				updatedTrener.isAktivan()
+	     		);
+	     return new ResponseEntity<>(noviTrenerDTO,HttpStatus.OK); 
+	}
+
+}

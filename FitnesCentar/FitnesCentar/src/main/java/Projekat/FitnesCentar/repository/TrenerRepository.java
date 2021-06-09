@@ -6,4 +6,5 @@ import Projekat.FitnesCentar.entity.Trener;
 
 public interface TrenerRepository extends JpaRepository<Trener, Long> {
 
+	Trener getOne(Long trenerId);	
 }

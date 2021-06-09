@@ -25,23 +25,28 @@ public class FitnesCentarController {
     public FitnesCentarController(FitnesCentarService fitnesCentarService) {
         this.fitnesCentarService = fitnesCentarService;
     }
-   
-	
-	
 	
 	@PostMapping( consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<FitnesCentarDTO> createFC(@RequestBody FitnesCentarDTO fitnesDTO) throws Exception {
+    public ResponseEntity<FitnesCentarDTO> create(@RequestBody FitnesCentarDTO fitnesDTO) throws Exception {
 
-        FitnesCentar fitnesCentar = new FitnesCentar(fitnesDTO.getNaziv(), fitnesDTO.getAdresa(),
-        		fitnesDTO.getBroj(), fitnesDTO.getEmail());
+        FitnesCentar fitnesCentar = new FitnesCentar(
+        		fitnesDTO.getNaziv(),
+        		fitnesDTO.getAdresa(),
+        		fitnesDTO.getBroj(), 
+        		fitnesDTO.getEmail()
+        		);
 
 
         FitnesCentar noviFitnesCentar =fitnesCentarService.create(fitnesCentar);
 
 
-        FitnesCentarDTO fitnesCentarDTO = new FitnesCentarDTO(noviFitnesCentar.getNaziv(), noviFitnesCentar .getAdresa(),
-        		noviFitnesCentar.getBrojTelefona(), noviFitnesCentar .getEmail());
+        FitnesCentarDTO fitnesCentarDTO = new FitnesCentarDTO(
+        		noviFitnesCentar.getNaziv(), 
+        		noviFitnesCentar .getAdresa(),
+        		noviFitnesCentar.getBrojTelefona(), 
+        		noviFitnesCentar .getEmail()
+        		);
 
 
         return new ResponseEntity<>(fitnesCentarDTO, HttpStatus.CREATED);

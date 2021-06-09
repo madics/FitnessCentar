@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import Projekat.FitnesCentar.entity.Korisnik;
 import Projekat.FitnesCentar.entity.dto.KorisnikDTO;
 import Projekat.FitnesCentar.service.KorisnikService;
-import Projekat.FitnesCentar.service.imp.KorisnikServiceImpl;
 
 
 

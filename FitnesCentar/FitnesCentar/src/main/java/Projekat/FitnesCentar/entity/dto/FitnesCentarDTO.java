@@ -7,6 +7,7 @@ public class FitnesCentarDTO {
 	private String adresa;
 	private String broj;
 	private String email;
+	public FitnesCentarDTO() {}
 	public FitnesCentarDTO(long id, String naziv, String adresa, String broj, String email) {
 		super();
 		this.id = id;

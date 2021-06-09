@@ -41,15 +41,15 @@
                         <img src="css\logo.png" alt=""/>
                         <h2>Dobrodošli!</h2>
                         <h3>Već imate nalog?</h3>
-                        <input type="submit" name="" value="Prijavite se"/><br/>
+                        <a href="Login.html"><input type="submit" name="" value="Prijavite se"/></a><br/>
                     </div>
                     <div class="col-md-9 register-right">
-                        <ul class="nav nav-tabs nav-justified sirina"  style="width:200;" id="myTab" role="tablist">
+                        <ul class="nav nav-tabs nav-justified "  style="width:200;"  id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link 		 " id="home-tab"  href="RegistracijaClana.html" >Član</a>
+                                <a class="nav-link	" id="profile-tab"  href="RegistracijaClana.html" >Član</a>
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link active" id="profile-tab"  href="" >Trener</a>
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="" >Trener</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -83,6 +83,8 @@
                                         </div>
 										
 										<select id="fitnesCentar" onChange="" class="form-select" aria-label="Default select example" >
+													<option id="fcPlaceHolder" disabled selected >Fitnes Centri*</option>
+
 										</select>	
 										
 

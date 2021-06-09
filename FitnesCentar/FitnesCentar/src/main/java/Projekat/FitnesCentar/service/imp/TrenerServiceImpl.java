@@ -2,7 +2,6 @@ package Projekat.FitnesCentar.service.imp;
 
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,4 +37,27 @@ import Projekat.FitnesCentar.service.TrenerService;
         return Treneri;
 	}
 
+
+	@Override
+	public Trener findOne(Long trenerId) throws Exception  {
+        Trener treneri = this.trenerRepository.getOne(trenerId);
+        return treneri;
 	}
+
+	@Override
+	public Trener update(Trener trener) {
+        trener.setAktivan(true);
+        Trener noviTrener =this.trenerRepository.save(trener);
+        return noviTrener;
+	}
+	/*
+	*/
+
+
+
+	}
+	
+	
+	
+	
+	

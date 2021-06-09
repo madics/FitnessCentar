@@ -37,7 +37,7 @@ public class TrenerController {
         this.trenerService = trenerService;
         this.fitnesCentarService= fitnesCentarService;
     }
-@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
+@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,//pravljenje trenera
         produces = MediaType.APPLICATION_JSON_VALUE)
 public ResponseEntity<TrenerDTO> createTrener(@RequestBody TrenerDTO trenerDTO) throws Exception {
     Trener trener = new Trener(
@@ -72,7 +72,7 @@ public ResponseEntity<TrenerDTO> createTrener(@RequestBody TrenerDTO trenerDTO) 
 
     return new ResponseEntity<>(noviTrenerDTO, HttpStatus.CREATED);
 }
-@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)//punjenje liste
 public ResponseEntity<List<FitnesCentarDTO>> getFitnesCentari() {
 
 	List<FitnesCentar> listaFitnesCentara = this.fitnesCentarService.findAll();
@@ -91,6 +91,5 @@ public ResponseEntity<List<FitnesCentarDTO>> getFitnesCentari() {
     }
     return new ResponseEntity<>(centarDTOS, HttpStatus.OK);
 }
-
 
 }

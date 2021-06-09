@@ -1,8 +1,6 @@
 
 $(document).on("submit", "#logovanjeForma", function (event) {     
-    event.preventDefault();                            	             // sprečavamo automatsko slanje zahteva da bismo pokupili (i validirali) podatke iz forme
-
-    // preuzimamo vrednosti unete u formi
+    event.preventDefault();                 
     let Username = $("#user").val();
     let Password = $("#pass").val();
 	
@@ -22,7 +20,9 @@ $(document).on("submit", "#logovanjeForma", function (event) {
         success: function (response) {                            
 		console.log(response);
 		alert(response.uloga+" " +response.id+ " je ulogovan!");
-            // window.location.href = "RegistracijaClana.html";           	     
+           if(response.uloga=="CLAN")window.location.href = "Clan.html";           	     
+           if(response.uloga=="TRENER")window.location.href = "Trener.html";           	     
+           if(response.uloga=="ADMINISTRATOR")window.location.href = "Admin.html";           	     
         },
         error: function () {                                      				 
             alert("greska!!!!");
