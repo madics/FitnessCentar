@@ -4,31 +4,32 @@ import Projekat.FitnesCentar.entity.Korisnik;
 
 public class KorisnikDTO {
 	private Long id;
-	private String Username;
-	private String Password;
+	private String username;
+	private String password;
 	Korisnik.Uloga uloga;
+	
+	public KorisnikDTO(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
 	public String getUsername() {
-		return Username;
+		return username;
 	}
 	public void setUsername(String username) {
-		Username = username;
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public Korisnik.Uloga getUloga() {
 		return uloga;
 	}
 	public void setUloga(Korisnik.Uloga uloga) {
 		this.uloga = uloga;
-	}
-	public String getPassword() {
-		return Password;
-	}
-	public void setPassword(String password) {
-		Password = password;
-	}
-	public KorisnikDTO(String username, String password) {
-		super();
-		Username = username;
-		Password = password;
 	}
 	public Long getId() {
 		return id;

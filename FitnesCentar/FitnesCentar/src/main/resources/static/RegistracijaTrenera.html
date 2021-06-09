@@ -1,20 +1,20 @@
 <html>
 <head>
     <meta charset="UTF-8">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <title>Registracija Trenera</title>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css\RegistracijaTrenera.css"/>
-
-<script src="js/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/RegistracijaTrenera.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="index.html">Pocetna</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -28,17 +28,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="index.html">Pocetna</a>
         <a class="nav-link" href="RegistracijaClana.html">Registracija</a>
+        <a class="nav-link" href="Login.html">Prijava</a>
         <a class="nav-link" href="tabela.html">Pregled</a>
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
-          >Disabled</a
-        >
       </div>
     </div>
   </div>
 </nav>
-<div class="providan">
 <div class="container register ">
                 <div class="row">
                     <div class="col-md-3 register-left">
@@ -50,84 +46,57 @@
                     <div class="col-md-9 register-right">
                         <ul class="nav nav-tabs nav-justified sirina"  style="width:200;" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link 		 " id="home-tab" data-toggle="tab" href="RegistracijaClana.html" role="tab" aria-controls="" aria-selected="false">Član</a>
+                                <a class="nav-link 		 " id="home-tab"  href="RegistracijaClana.html" >Član</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="" role="tab" aria-controls="" aria-selected="true">Trener</a>
+                                <a class="nav-link active" id="profile-tab"  href="" >Trener</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Registrujte se kao trener</h3>
-								<form id="noviTrenerForma">
-                                <div class="row register-form">
+                                <h3 class="register-heading">Registrujte se kao član</h3>
+                                <form id="noviTrenerForma">
+								<div class="row register-form">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Ime*" value="" />
+														<input id="ime"		 type="text" class="form-control" placeholder="Ime*"  />
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Prezime*" value="" />
+														<input id="prezime" 	type="text" class="form-control" placeholder="Prezime*" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="korisničko ime*" value="" />
+														<input id="username" type="text" class="form-control" placeholder="korisničko ime*" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control"  placeholder="Šifra*" value="" />
+														<input id="password" 	type="password" class="form-control"  placeholder="Šifra*" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Vaš email*" value="" />
+														<input id="email"	 type="email" class="form-control" placeholder="Vaš email*"  />
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Kontakt telefon*" value="" />
+														<input id="broj"	type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Kontakt telefon*" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="date" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Datum rođenja*" value="" />
+														<input id="datum" 	type="date" minlength="10" maxlength="10" name="Datum" class="form-control" placeholder="Datum rođenja*" />
                                         </div>
-                                        <input type="submit" class="btnRegister"  value="Registrujte se"/>
+										
+										<select id="fitnesCentar" onChange="" class="form-select" aria-label="Default select example" >
+										</select>	
+										
+
+
+										<input type="submit"  class="btnRegister"  value="Registrujte se"/>
                                     </div>
                                 </div>
 								</form>
                             </div>
-                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <h3  class="register-heading">Apply as a Hirer</h3>
-                                <div class="row register-form">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
-                                        </div>
-
-
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="`Answer *" value="" />
-                                        </div>
-                                        <input type="submit" class="btnRegister"  value="Register"/>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
 
             </div>
-</div>
 </body>
 </html>

@@ -7,6 +7,12 @@
 .bg-light{
 background: -webkit-linear-gradient(left, #3931af, #00c6ff);
 	
+  color: #ffffff;
+}
+nav{
+	
+  color: #ffffff;
+background: -webkit-linear-gradient(left, #3931af, #00c6ff);
 }
 body{	
     background-color: #3931af;

@@ -33,24 +33,15 @@ public class KorisnikController {
         produces = MediaType.APPLICATION_JSON_VALUE)
 
 public ResponseEntity<KorisnikDTO> logovanje(@RequestBody KorisnikDTO korisnikDTO) throws Exception {
-	KorisnikDTO korisnik = new KorisnikDTO (
-            korisnikDTO.getUsername(),
-            korisnikDTO.getPassword ()
-    		);
 
-    //Korisnik noviKorisnik = korisnikService.findByUsernameAndPassword(korisnik.getUsername(),korisnik.getPassword());
-    Korisnik noviKorisnik = korisnikService.findByUsernameAndPassword("Username1","Passowrd1");
-    try {
-    	  //  Block of code to try
-    korisnik.setId(noviKorisnik.getId());
-	korisnik.setUloga(noviKorisnik.getUlogaKorisnika());
+
+
+    	Korisnik noviKorisnik = korisnikService.findByUsernameAndPassword(korisnikDTO.getUsername(),korisnikDTO.getPassword());
+    if(noviKorisnik!=null) {    
+    korisnikDTO.setId(noviKorisnik.getId());
+	korisnikDTO.setUloga(noviKorisnik.getUlogaKorisnika());
     }
-    catch(Exception e) {
-    	//  Block of code to handle errors
-    }
- 
-	if(noviKorisnik!=null)return new ResponseEntity<>(korisnik,HttpStatus.OK);
-	return null;
+	return new ResponseEntity<>(korisnikDTO,HttpStatus.OK);
 	
 }
 }

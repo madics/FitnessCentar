@@ -6,13 +6,12 @@ $(document).on("submit", "#logovanjeForma", function (event) {
     let Username = $("#user").val();
     let Password = $("#pass").val();
 	
-	console.log(Username);
     let Korisnik = {
-		Username,
-		Password
+		username: Username,
+		password: Password
 		}
 		
-	console.log(Korisnik.Username);
+	console.log(Korisnik.username);
     
 	$.ajax({
         type: "POST",                                             
@@ -22,7 +21,7 @@ $(document).on("submit", "#logovanjeForma", function (event) {
         data: JSON.stringify(Korisnik),                       
         success: function (response) {                            
 		console.log(response);
-		alert("Korisnik " +response.ime +response.id+ " je ulogovan!");
+		alert(response.uloga+" " +response.id+ " je ulogovan!");
             // window.location.href = "RegistracijaClana.html";           	     
         },
         error: function () {                                      				 

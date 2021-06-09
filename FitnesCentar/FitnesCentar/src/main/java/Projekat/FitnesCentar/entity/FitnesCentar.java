@@ -16,13 +16,13 @@ public class FitnesCentar {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column
-	 private String Naziv;
+	 private String naziv;
 	@Column 
-	private String Adresa;
+	private String adresa;
 	@Column (name = "broj_telefona")
-	private String BrojTelefona;
+	private String broj;
 	@Column
-	private String Email;
+	private String email;
     @OneToMany(mappedBy = "fitnescentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Trener> ListaTrenera= new HashSet<>();
     @OneToMany(mappedBy = "fitnescentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -48,28 +48,28 @@ public class FitnesCentar {
 		ListaSala = listaSala;
 	}
 	public String getNaziv() {
-		return Naziv;
+		return naziv;
 	}
 	public void setNaziv(String naziv) {
-		Naziv = naziv;
+		this.naziv = naziv;
 	}
 	public String getAdresa() {
-		return Adresa;
+		return adresa;
 	}
 	public void setAdresa(String adresa) {
-		Adresa = adresa;
+		this.adresa = adresa;
 	}
 	public String getBrojTelefona() {
-		return BrojTelefona;
+		return broj;
 	}
 	public void setBrojTelefona(String brojTelefona) {
-		BrojTelefona = brojTelefona;
+		broj = brojTelefona;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 
 }

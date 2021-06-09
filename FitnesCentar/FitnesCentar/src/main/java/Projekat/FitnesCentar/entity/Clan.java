@@ -12,7 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 @Entity
 public class Clan extends Korisnik {
-
+	public Clan() {}
     public Clan(String username, String password, String ime, String prezime, String kontaktTelefon, String email,
 			Date datumRodjenja, Korisnik.Uloga ulogaKorisnika, boolean aktivan) {
 		super(username, password, ime, prezime, kontaktTelefon, email, datumRodjenja, ulogaKorisnika, aktivan);

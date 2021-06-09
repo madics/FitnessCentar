@@ -19,7 +19,7 @@ public class TerminServiceImpl implements TerminService {
     public TerminServiceImpl(TerminRepository terminRepository) {
         this.terminRepository = terminRepository;
     }
-
+    @Override
    public List<Termin> findAll() {
         List<Termin> Termini = this.terminRepository.findAll();
         return Termini;

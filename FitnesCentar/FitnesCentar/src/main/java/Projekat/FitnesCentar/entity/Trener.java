@@ -18,13 +18,19 @@ public class Trener extends Korisnik{
 		super(username, password, ime, prezime, kontaktTelefon, email, datumRodjenja, ulogaKorisnika, aktivan);
 		// TODO Auto-generated constructor stub
 	}
+	
 	@OneToMany(mappedBy = "trener", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Termin> ListaTreninga= new HashSet<>();
 	@Column(name="prosecna_ocena")
     private double ProsecnaOcena;
     @ManyToOne(fetch = FetchType.EAGER)
     private FitnesCentar fitnescentar;
-    
+
+	public Trener(String username, String password, String ime, String prezime, String kontaktTelefon, String email,
+			Date datumRodjenja, Korisnik.Uloga ulogaKorisnika, boolean aktivan,FitnesCentar fc) {
+		super(username, password, ime, prezime, kontaktTelefon, email, datumRodjenja, ulogaKorisnika, aktivan);
+		fitnescentar=fc;
+	}
 	public Set<Termin> getListaTreninga() {
 		return ListaTreninga;
 	}

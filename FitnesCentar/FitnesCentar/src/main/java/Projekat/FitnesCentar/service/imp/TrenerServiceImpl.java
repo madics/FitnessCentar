@@ -1,6 +1,8 @@
 package Projekat.FitnesCentar.service.imp;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,13 @@ import Projekat.FitnesCentar.service.TrenerService;
 	    }
 	    Trener noviTrener= this.trenerRepository.save(trener);
 	    return noviTrener;
+	}
+
+
+	@Override
+	public List<Trener> findAll() {
+        List<Trener> Treneri = this.trenerRepository.findAll();
+        return Treneri;
 	}
 
 	}
