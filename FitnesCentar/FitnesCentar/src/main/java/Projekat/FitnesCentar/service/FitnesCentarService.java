@@ -9,4 +9,5 @@ public interface FitnesCentarService {
 
 	FitnesCentar findById(long id);
 
+	FitnesCentar create(FitnesCentar fitnesCentar)throws Exception;
 }

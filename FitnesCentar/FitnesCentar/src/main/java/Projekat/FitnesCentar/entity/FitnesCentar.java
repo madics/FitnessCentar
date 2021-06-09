@@ -28,8 +28,23 @@ public class FitnesCentar {
     @OneToMany(mappedBy = "fitnescentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Sala> ListaSala= new HashSet<>();
     
-    
-	 public long getId() {
+    public FitnesCentar() {}
+	public FitnesCentar(long id, String naziv, String adresa, String broj, String email) {
+		super();
+		this.id = id;
+		this.naziv = naziv;
+		this.adresa = adresa;
+		this.broj = broj;
+		this.email = email;
+	}
+	public FitnesCentar(String naziv, String adresa, String broj, String email) {
+		super();
+		this.naziv = naziv;
+		this.adresa = adresa;
+		this.broj = broj;
+		this.email = email;
+	}
+	public long getId() {
 		return id;
 	}
 	public void setId(long id) {

@@ -31,7 +31,13 @@ public class FitnesCentarServiceImpl implements FitnesCentarService {
         return fitnesCentar;
 
 	}
-
-
+	
+	public FitnesCentar create(FitnesCentar fitnesCentar) throws Exception {
+	    if (fitnesCentar.getId()!=0) {
+	        throw new Exception("ID must be null!");
+	    }
+	    FitnesCentar noviFitnesCentar= this.fitnesCentarRepository.save(fitnesCentar);
+	    return noviFitnesCentar;
+		}
 
 }

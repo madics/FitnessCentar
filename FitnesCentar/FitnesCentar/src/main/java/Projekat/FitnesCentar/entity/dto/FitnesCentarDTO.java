@@ -15,6 +15,12 @@ public class FitnesCentarDTO {
 		this.broj = broj;
 		this.email = email;
 	}
+	public FitnesCentarDTO(String naziv2, String adresa2, String brojTelefona, String email2) {
+		this.naziv = naziv2;
+		this.adresa = adresa2;
+		this.broj = brojTelefona;
+		this.email = email2;
+	}
 	public long getId() {
 		return id;
 	}

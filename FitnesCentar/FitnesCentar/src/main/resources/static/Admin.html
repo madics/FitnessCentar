@@ -1,6 +1,7 @@
 
 <html>
 <head>
+    <meta charset="UTF-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -42,7 +43,30 @@
                     <th>Odobri</th>
                 </tr>                
         </table>
-
-
+		                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <form id="dodajCentar">
+									<div class="row register-form">
+										<div class="col-md-6">
+											<div class="form-group">
+															<input id="naziv"		 type="text" class="form-control" placeholder="Naziv*"  />
+											</div>
+											<div class="form-group">
+															<input id="adresa" 	type="text" class="form-control" placeholder="Adresa*" />
+											</div>
+											<div class="form-group">
+															<input id="broj" type="text" class="form-control" placeholder="Broj Telefona*" />
+											</div>
+											<div class="form-group">
+															<input id="email" 	type="text" class="form-control"  placeholder="Email*" />
+											</div>
+											
+											<input type="submit"  class="btnRegister"  value="Sačuvaj"/>
+										</div>
+									 </div>
+								</form>
+								
+                                </div>
+                                    </div>
 </body>
 </html>

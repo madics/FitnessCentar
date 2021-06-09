@@ -21,6 +21,40 @@ $(document).ready(function () {
     });
 });
 
+$(document).on("submit", "#dodajCentar", function (event) {     
+    event.preventDefault();                                     
+    let naziv = $("#naziv").val();
+    let adresa = $("#adresa").val();
+    let broj = $("#broj").val();
+    let email = $("#email").val();
+
+
+    let noviCentar = {
+        naziv,
+        adresa,
+        broj,
+        email     
+    }
+    
+
+    $.ajax({
+        type: "POST",                                               
+        url: "http://localhost:8081/api/fitnes",                
+        dataType: "json",                                           
+        contentType: "application/json",                            
+        data: JSON.stringify(noviCentar),                        
+        success: function (response) {                              
+            console.log(response);                              
+
+            alert(response.naziv + " je uspešno kreiran!");
+            // window.location.href = "fitnesscentri.html";              
+        },
+        error: function () {                                        
+            alert("Greška prilikom dodavanja fitness centra!");
+        }
+    });
+});
+
         // function popuniSelect(polje,id) {
 				// var opt = document.createElement('option');
 				// opt.appendChild( document.createTextNode(polje) );
