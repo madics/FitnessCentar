@@ -39,7 +39,8 @@ public ResponseEntity<KorisnikDTO> logovanje(@RequestBody KorisnikDTO korisnikDT
     if(noviKorisnik!=null) {    
     korisnikDTO.setId(noviKorisnik.getId());
 	korisnikDTO.setUloga(noviKorisnik.getUlogaKorisnika());
-    }
+	korisnikDTO.setAktivan(noviKorisnik.isAktivan());
+    }else return new ResponseEntity<>(korisnikDTO,HttpStatus.NOT_FOUND);
 	return new ResponseEntity<>(korisnikDTO,HttpStatus.OK);
 	
 }

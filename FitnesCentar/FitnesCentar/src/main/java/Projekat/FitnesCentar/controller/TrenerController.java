@@ -54,6 +54,9 @@ public ResponseEntity<TrenerDTO> createTrener(@RequestBody TrenerDTO trenerDTO) 
             fitnesCentarService.findById(trenerDTO.getFcid())
     		);
 
+	List<Trener> sviTreneri= this.trenerService.findAll();
+    for (Korisnik k: sviTreneri)if(k.getUsername().equals(trener.getUsername()))return new ResponseEntity<>(new TrenerDTO(), HttpStatus.ALREADY_REPORTED);
+
     Trener noviTrener = trenerService.create(trener);
 
     TrenerDTO noviTrenerDTO = new TrenerDTO(

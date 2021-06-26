@@ -7,6 +7,7 @@ public class KorisnikDTO {
 	private String username;
 	private String password;
 	Korisnik.Uloga uloga;
+	private boolean aktivan;
 	
 	public KorisnikDTO(String username, String password) {
 		super();
@@ -36,5 +37,11 @@ public class KorisnikDTO {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public boolean isAktivan() {
+		return aktivan;
+	}
+	public void setAktivan(boolean aktivan) {
+		this.aktivan = aktivan;
 	}
 }

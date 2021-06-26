@@ -19,13 +19,20 @@ $(document).on("submit", "#logovanjeForma", function (event) {
         data: JSON.stringify(Korisnik),                       
         success: function (response) {                            
 		console.log(response);
-		alert(response.uloga+" " +response.id+ " je ulogovan!");
-           if(response.uloga=="CLAN")window.location.href = "Clan.html";           	     
+			
+           if(response.aktivan==false){                       	
+			alert("Korisnik " +response.id+ " nije odobren!");			 
+			window.location.href = "Login.html";           
+		   }else{
+			   
+		   if(response.uloga=="CLAN")window.location.href = "Clan.html";           	     
            if(response.uloga=="TRENER")window.location.href = "Trener.html";           	     
            if(response.uloga=="ADMINISTRATOR")window.location.href = "Admin.html";           	     
+			   
+		   }
         },
         error: function () {                                      				 
-            alert("greska!!!!");
+            alert("Netacni kredencijali.");
         }
     });
 });

@@ -57,9 +57,14 @@ $(document).on("submit", "#noviTrenerForma", function (event) {
         data: JSON.stringify(noviKorisnik),                       
         success: function (response) {   
 		console.log(response);
-		alert("Korisnik " +response.ime +" " + response.id+ " radi u"+response.fcid);
+		if(response.username==null){
+		alert("username vec postoji unesite drugi");
+           window.location.href = "RegistracijaTrenera.html";           	
+        }else{
+			alert("Korisnik " +response.username +" " + response.id+ " radi u"+response.fcid);
              window.location.href = "Login.html";           	     
-        },
+        }
+		},
         error: function () {                                      				 
             alert("greska!!!!");
         }
