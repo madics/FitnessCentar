@@ -29,8 +29,20 @@ public class Clan extends Korisnik {
             joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
     private Set<Termin> PrijavljeniTreninzi = new HashSet<>();
-    @OneToMany(mappedBy = "clan", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public boolean prijaviTermin(Termin t) {
+		return PrijavljeniTreninzi.add(t);
+	}
+    public boolean odjaviTermin(Termin t) {
+		return PrijavljeniTreninzi.remove(t);
+	}
+	@OneToMany(mappedBy = "clan", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Ocena> ListaOcena= new HashSet<>();
+	public Set<Termin> getPrijavljeniTreninzi() {
+		return PrijavljeniTreninzi;
+	}
+	public void setPrijavljeniTreninzi(Set<Termin> prijavljeniTreninzi) {
+		PrijavljeniTreninzi = prijavljeniTreninzi;
+	}
 	
    
 }

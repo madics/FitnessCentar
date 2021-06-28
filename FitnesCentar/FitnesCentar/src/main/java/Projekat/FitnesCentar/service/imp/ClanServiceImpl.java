@@ -28,4 +28,18 @@ import Projekat.FitnesCentar.service.ClanService;
 	    return noviClan;
 	}
 
+	@Override
+	public Clan findOne(Long clanId) throws Exception  {
+        Clan clani = this.clanRepository.getOne(clanId);
+        return clani;
+	}
+
+
+	@Override
+	public Clan update(Clan clan) {
+		Clan noviClan =this.clanRepository.save(clan);
+        return noviClan;
+	}
+
+
 	}

@@ -25,6 +25,18 @@ public class TerminServiceImpl implements TerminService {
         return Termini;
 
 	}
+	@Override
+	public Termin findOne(Long terminId) throws Exception {
+		Termin termin = this.terminRepository.getOne(terminId);
+		return termin;
+	}
+
+	@Override
+	public Termin update(Termin termin) {
+        //termin.setAktivan(true);
+        Termin noviTermin =this.terminRepository.save(termin);
+        return noviTermin;
+	}
 
 
 

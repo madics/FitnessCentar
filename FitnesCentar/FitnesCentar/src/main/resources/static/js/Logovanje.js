@@ -25,9 +25,21 @@ $(document).on("submit", "#logovanjeForma", function (event) {
 			window.location.href = "Login.html";           
 		   }else{
 			   
-		   if(response.uloga=="CLAN")window.location.href = "Clan.html";           	     
-           if(response.uloga=="TRENER")window.location.href = "Trener.html";           	     
-           if(response.uloga=="ADMINISTRATOR")window.location.href = "Admin.html";           	     
+		   if(response.uloga=="CLAN")
+		   {
+		   window.location.href = "Clan.html";           	        
+		   localStorage.setItem("id",response.id);
+		   }
+           if(response.uloga=="TRENER"){
+		   window.location.href = "Trener.html";         	        
+		   localStorage.setItem("id",response.id);         	     
+		   }
+           if(response.uloga=="ADMINISTRATOR"){
+		   window.location.href = "Admin.html";          	        
+		   localStorage.setItem("id",response.id);
+			
+		   
+		   }
 			   
 		   }
         },
