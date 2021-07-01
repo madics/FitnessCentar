@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
+@SuppressWarnings("serial")
 @Entity
 @Inheritance( strategy = InheritanceType.JOINED )
 public class Korisnik implements Serializable{

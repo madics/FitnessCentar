@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import Projekat.FitnesCentar.entity.Clan;
 import Projekat.FitnesCentar.entity.Korisnik;
 import Projekat.FitnesCentar.entity.Termin;
-import Projekat.FitnesCentar.entity.Trening;
 import Projekat.FitnesCentar.entity.dto.ClanDTO;
 import Projekat.FitnesCentar.entity.dto.TerminDTO;
 import Projekat.FitnesCentar.service.ClanService;
@@ -74,7 +73,7 @@ public ResponseEntity<ClanDTO> createClan(@RequestBody ClanDTO clanDTO) throws E
 
     return new ResponseEntity<>(noviClanDTO, HttpStatus.CREATED);
 }
-		@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE,produces= MediaType.APPLICATION_JSON_VALUE,value="/{id}/prijava")
+		@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE,produces= MediaType.APPLICATION_JSON_VALUE,value="/prijava/{id}")
 		public ResponseEntity<String> prijavaTermina(@PathVariable("id") Long clanId,
 		  @Validated @RequestBody Long terminId) throws Exception {
 			
@@ -85,7 +84,7 @@ public ResponseEntity<ClanDTO> createClan(@RequestBody ClanDTO clanDTO) throws E
 		     return new ResponseEntity<>(new String(clanId+" je prijavio "+terminId),HttpStatus.OK); 
 		}
 		
-		@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE,produces= MediaType.APPLICATION_JSON_VALUE,value="/{id}/odjava")
+		@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE,produces= MediaType.APPLICATION_JSON_VALUE,value="/odjava/{id}")
 		public ResponseEntity<String> odjavaTermina(@PathVariable("id") Long clanId,
 		  @Validated @RequestBody Long terminId) throws Exception {
 			

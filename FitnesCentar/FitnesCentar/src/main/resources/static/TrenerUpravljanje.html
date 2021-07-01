@@ -1,0 +1,103 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registracija Trenera</title>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css\RegistracijaTrenera.css"/>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/TrenerUpravljanje.js"></script>
+</head>
+<style>
+
+.register-right{
+	width:700;
+    background: #f8f9fa;
+    border-top-left-radius: 0% 0%;
+    border-bottom-left-radius: 0% 0%;
+	align:center;
+	margin-left:130;
+}
+.col-md-9{
+	width:700;
+}
+</style>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="Trener.html">Moj Profil</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+	  
+        <a class="nav-link" href="TrenerTermini.html">Pregled Termina</a>
+        <a class="nav-link" href="TrenerUpravljanje.html">Moji Termini</a>
+        <a class="nav-link" ali href="Login.html" onclick="localStorage.setItem('id',null)">Odjavi se </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container register ">
+                <div class="row">
+                    <div class="col-md-9 register-right">
+                        <ul class="nav nav-tabs nav-justified "  style="width:200;"  id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link	" id="profile-tab"  href="TreneroviTermini.html" >Izmena</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab"  href="TrenerUpravljanje.html" >Kreiranje</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Napravi novi termin</h3>
+                                <form id="noviTermin">
+								<div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+														<input id="cena"		 type="text" class="form-control" placeholder="Cena*"  />
+                                        </div>
+										
+										<select id="trening" onChange="" class="form-select" aria-label="Default select example" >
+													<option id="treningPlaceHolder" disabled selected >Treninzi*</option>
+
+										</select>	
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+														<input id="datum" 	type="date" minlength="10" maxlength="10" name="Datum" class="form-control" placeholder="Datum rođenja*" />
+                                        </div>
+										
+										<select id="sala" onChange="" class="form-select" aria-label="Default select example" >
+													<option id="salaPlaceHolder" disabled selected >Sale Fitnes Centra*</option>
+
+										</select>	
+										
+
+
+										<input type="submit"  class="btnRegister"  value="Kreiraj"/>
+                                    </div>
+                                </div>
+								</form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+</body>
+</html>

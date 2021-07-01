@@ -1,5 +1,7 @@
 package Projekat.FitnesCentar.service.imp;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +24,10 @@ public class TreningServiceImpl implements TreningService{
         return trening;
 
 	}
+   @Override
+  public List<Trening> findAll() {
+       List<Trening> Treninzi = this.treningRepository.findAll();
+       return Treninzi;
 
+	}
 }

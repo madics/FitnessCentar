@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import javax.persistence.Entity;
 
+@SuppressWarnings("serial")
 @Entity
 public class Administrator extends Korisnik {
 

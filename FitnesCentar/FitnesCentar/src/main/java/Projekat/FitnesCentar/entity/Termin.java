@@ -23,8 +23,28 @@ public class Termin {
 	private Date dan;
 	@Column
 	private double cena;
-	
-    @ManyToMany(mappedBy = "PrijavljeniTreninzi")
+	public Termin() {}
+    public Termin(long id, Date dan, double cena, Trener trener, Sala sala, Trening trening) {
+		super();
+		this.id = id;
+		this.dan = dan;
+		this.cena = cena;
+		this.trener = trener;
+		this.sala = sala;
+		this.trening = trening;
+	}
+	public Termin(Date dan, double cena, Trener trener, Sala sala, Trening trening) {
+		super();
+		this.dan = dan;
+		this.cena = cena;
+		this.trener = trener;
+		this.sala = sala;
+		this.trening = trening;
+	}
+	public Termin(Date dan, double cena) {
+		// TODO Auto-generated constructor stub
+	}
+	@ManyToMany(mappedBy = "PrijavljeniTreninzi")
     private Set<Clan> listaPrijavljenih= new HashSet<>();
     @ManyToMany(mappedBy = "OdradjeniTreninzi")
     private Set<Clan> listaPosetioca= new HashSet<>();

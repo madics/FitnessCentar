@@ -11,7 +11,7 @@ $(document).on("submit", "#prijaviTermin", function (event) {
 
     $.ajax({
         type: "PUT",                                               
-        url: "http://localhost:8081/api/RegistracijaClana/prijava"+localStorage.getItem("id"),               
+        url: "http://localhost:8081/api/RegistracijaClana/prijava/"+localStorage.getItem("id"),               
         dataType: "json",                                           
         contentType: "application/json",                            
         data: JSON.stringify(id),                        
@@ -48,7 +48,7 @@ $(document).on("submit", "#prijaviTermin", function (event) {
                 row += "<td>" + termin.opis + "</td>";      
                 row += "<td>" + termin.tipTreninga + "</td>";
                 row += "<td>" + termin.trajanje + "</td>";  
-				row += "<td>" + "<input type='submit' id='"+termin.id+"' class='btnRegister'  value='Prijavi se' onclick='myFunction(" +termin.id+ ")'/></td></tr>";     
+				row += "<td   width='150' >" + "<input type='submit' id='"+termin.id+"' class='btnRegister'  value='Prijavi se' onclick='myFunction(" +termin.id+ ")'/></td></tr>";     
                 
                 $('#termini').append(row);              
 				

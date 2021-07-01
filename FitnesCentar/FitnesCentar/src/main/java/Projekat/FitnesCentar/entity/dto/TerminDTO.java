@@ -13,6 +13,9 @@ public class TerminDTO {
 	private String opis;
 	private String tip;
 	private String trajanje;
+	private long trenerId;
+	private long salaId;
+	private long treningId;
 
 	
 	
@@ -38,6 +41,18 @@ public class TerminDTO {
 		this.tip=tip;
 		this.trajanje = trajanje;
 	}
+		public TerminDTO(Date dan, double cena, String naziv, String opis, String tip, String trajanje,long idtrenera,long idsale,long idtreninga) {
+			super();
+			this.dan = dan;
+			this.cena = cena;
+			this.naziv = naziv;
+			this.opis = opis;
+			this.tip=tip;
+			this.trajanje = trajanje;
+			this.trenerId=idtrenera;
+			this.salaId=idsale;
+			this.treningId=idtreninga;
+		}
 	public TerminDTO(Trening trening,Termin termin) {
 		this.id = termin.getId();
 		this.dan = termin.getDan();
@@ -104,6 +119,30 @@ public class TerminDTO {
 
 	public void setTipTreninga(String tip) {
 		this.tip = tip;
+	}
+
+	public long getTrenerId() {
+		return trenerId;
+	}
+
+	public void setTrenerId(long trenerId) {
+		this.trenerId = trenerId;
+	}
+
+	public long getSalaId() {
+		return salaId;
+	}
+
+	public void setSalaId(long salaId) {
+		this.salaId = salaId;
+	}
+
+	public long getTreningId() {
+		return treningId;
+	}
+
+	public void setTreningId(long treningId) {
+		this.treningId = treningId;
 	}
 	
 }

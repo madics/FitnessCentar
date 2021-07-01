@@ -8,7 +8,7 @@ INSERT INTO FITNES_CENTAR (Naziv,Adresa,broj_telefona,Email) VALUES ('Naziv3', '
 
 
 INSERT INTO KORISNIK (Username,Password,Ime,Prezime,kontakt_telefon,Email,datum_rodjenja,uloga_korisnika,Aktivan
-) VALUES ('Username1','Password1','Ime1','Prezime1','KontaktTelefon1','Email1','2001-11-11',1,FALSE);
+) VALUES ('Username1','Password1','Ime1','Prezime1','KontaktTelefon1','Email1','2001-11-11',1,TRUE);
 INSERT INTO KORISNIK (Username,Password,Ime,Prezime,kontakt_telefon,Email,datum_rodjenja,uloga_korisnika,Aktivan
 ) VALUES ('Username2','Password2','Ime2','Prezime2','KontaktTelefon2','Email2','2002-2-22',2,TRUE);
 INSERT INTO KORISNIK (Username,Password,Ime,Prezime,kontakt_telefon,Email,datum_rodjenja,uloga_korisnika,Aktivan

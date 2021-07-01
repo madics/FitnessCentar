@@ -21,9 +21,6 @@
     <fullyQualifiedTypeName name="java.awt.PageAttributes.MediaType"/>
     <fullyQualifiedTypeName name="antlr.collections.List"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.repository.KorisnikRepository"/>
-    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.dto.TerminDTO"/>
-    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Termin"/>
-    <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.TerminService"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.dto.KorisnikDTO"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.KorisnikService"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
@@ -60,4 +57,7 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="org.springframework.validation.annotation.Validated"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.dto.TerminDTO"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.TerminService"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Termin"/>
 </qualifiedTypeNameHistroy>
