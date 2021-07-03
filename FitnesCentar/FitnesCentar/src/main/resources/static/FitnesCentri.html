@@ -1,0 +1,126 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Trener Termini</title>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css\FitnesCentri.css"/>
+    
+	<script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/FitnesCentri.js"></script>
+</head>
+<style>
+
+.register-right{
+	width:700;
+    background: #f8f9fa;
+    border-top-left-radius: 0% 0%;
+    border-bottom-left-radius: 0% 0%;
+	align:center;
+	margin-left:130;
+}
+.col-md-9
+	width:700;
+}
+.izmene{
+display :none;
+}
+</style>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="Admin.html">Admin</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="tabela.html">Pregled Termina</a>
+        <a class="nav-link" href="Treneri.html">Treneri</a>
+		<a class="nav-link" href="Sale.html">Sale</a>
+		<a class="nav-link" href="FitnesCentri.html">Fitnes Centri</a>
+        <a class="nav-link" ali href="Login.html" onclick="localStorage.setItem('id',null)">Odjavi se </a>
+		
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container register ">
+                <div class="row">
+                    <div class="col-md-9 register-right">
+                        <ul class="nav nav-tabs nav-justified "  style="width:200;"  id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link	active" id="profile-tab"  href="FitnesCentri.html" >Izmena</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="home-tab"  href="KreirajCentar.html" >Kreiranje</a>
+                            </li>
+                        </ul>
+						<br>
+						<br>
+						<br>
+						<br>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+							<div class="form-group">
+							 <form id="prijaviTermin">
+									<table id="fitnesi">
+									
+											<thead>
+												<th>Id			</th>
+												<th>Naziv			</th>
+												<th>Adresa			</th>
+												<th>Br Telefona</th>
+												<th>Email</th>
+											</thead>                
+										</table>
+									</form>
+									<!-- NESTAJUCA FORMA -->
+									<div class="collapse" id="collapseExample">
+									<div class="card card-body">
+
+									<form id="izmeniFC" class="izmene">
+
+									<label >Izmeni:</label>
+									<br>
+									<label >Naziv		:</label>
+									<input type="text" id="nazivi" onChange="" >
+									<br>
+
+									<label >Adresa	:</label>
+									<input type="text" id="adrese" onChange="" >
+									<br>
+
+									<label >Br Telefona	:</label>
+									<input type="text" id="brojevi" onChange="" >
+									<br>
+
+									<label >Email	:</label>
+									<input type="text" id="email" onChange="" >
+									<br>
+									<input type="submit" value="Sacuvaj">
+									</form>
+									</div>
+									</div>
+									<!-- NESTAJUCA FORMA -->
+                                        </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>	
+</body>
+</html>

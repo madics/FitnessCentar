@@ -44,9 +44,9 @@ public class Termin {
 	public Termin(Date dan, double cena) {
 		// TODO Auto-generated constructor stub
 	}
-	@ManyToMany(mappedBy = "PrijavljeniTreninzi")
+	@ManyToMany(mappedBy = "PrijavljeniTreninzi",fetch = FetchType.LAZY,cascade = CascadeType.ALL )
     private Set<Clan> listaPrijavljenih= new HashSet<>();
-    @ManyToMany(mappedBy = "OdradjeniTreninzi")
+    @ManyToMany(mappedBy = "OdradjeniTreninzi",fetch = FetchType.LAZY,cascade = CascadeType.ALL )
     private Set<Clan> listaPosetioca= new HashSet<>();
     @OneToMany(mappedBy = "termin", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Ocena> ocene = new HashSet<>();

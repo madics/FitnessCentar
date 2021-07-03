@@ -40,4 +40,16 @@ public class FitnesCentarServiceImpl implements FitnesCentarService {
 	    return noviFitnesCentar;
 		}
 
+    @Override
+    public void delete(Long id) {
+        this.fitnesCentarRepository.deleteById(id);
+    }
+	@Override
+	public FitnesCentar update(FitnesCentar trener) {
+        FitnesCentar noviFitnesCentar =this.fitnesCentarRepository.save(trener);
+        return noviFitnesCentar;
+	}
+	
+
+
 }

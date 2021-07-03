@@ -10,4 +10,9 @@ public interface FitnesCentarService {
 	FitnesCentar findById(long id);
 
 	FitnesCentar create(FitnesCentar fitnesCentar)throws Exception;
+
+	void delete(Long id);
+
+
+	FitnesCentar update(FitnesCentar fitnesCentar);
 }

@@ -1,3 +1,4 @@
+
 let odabran=0;
 
 function myFunction(id) {

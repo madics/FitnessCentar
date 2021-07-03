@@ -47,7 +47,7 @@ $(document).on("submit", "#dodajCentar", function (event) {
             console.log(response);                              
 
             alert(response.naziv + " je uspešno kreiran!");
-            // window.location.href = "fitnesscentri.html";              
+            window.location.href = "FitnesCentri.html";              
         },
         error: function () {                                        
             alert("Greška prilikom dodavanja fitness centra!");
