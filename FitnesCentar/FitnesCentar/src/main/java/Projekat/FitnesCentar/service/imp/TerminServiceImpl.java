@@ -37,6 +37,15 @@ public class TerminServiceImpl implements TerminService {
         Termin noviTermin =this.terminRepository.save(termin);
         return noviTermin;
 	}
+	@Override
+	public Termin create(Termin termin) throws Exception {
+	    if (termin.getId() != 0) {
+	        throw new Exception("ID must be null!");
+	    }
+	    Termin noviTermin= this.terminRepository.save(termin);
+	    return noviTermin;
+	}
+
 
 
 

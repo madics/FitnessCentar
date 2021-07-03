@@ -19,6 +19,15 @@ public class TerminDTO {
 
 	
 	
+	public TerminDTO(Date dan, double cena, long trenerId, long salaId, long treningId) {
+		super();
+		this.dan = dan;
+		this.cena = cena;
+		this.trenerId = trenerId;
+		this.salaId = salaId;
+		this.treningId = treningId;
+	}
+
 	public TerminDTO(long id, Date dan, double cena, String naziv, String opis, String tip, String trajanje) {
 		super();
 		this.id = id;

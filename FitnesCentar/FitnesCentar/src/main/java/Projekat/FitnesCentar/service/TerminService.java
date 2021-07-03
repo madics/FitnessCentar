@@ -8,5 +8,6 @@ public interface TerminService {
      List<Termin> findAll() ;
  	Termin findOne(Long terminId)throws Exception ;
 	Termin update(Termin termin);
+	Termin create(Termin termin) throws Exception ;
 
 }

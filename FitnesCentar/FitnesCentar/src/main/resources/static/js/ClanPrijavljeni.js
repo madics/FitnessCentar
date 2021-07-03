@@ -19,12 +19,12 @@ $(document).on("submit", "#prijaviTermin", function (event) {
         success: function (response) {                              
             console.log(response);                              
 
-            alert(" termin prijavljen!");     
+            alert(" termin odjavljen!");          
+		console.log(localStorage.getItem("id")+","+id);
+              window.location.href = "ClanPrijavljeni.html"; 
 			
         },
         error: function () {                                        
-		console.log(localStorage.getItem("id")+","+id);
-              window.location.href = "ClanPrijavljeni.html";      
             alert("Greška!");
         }
     });

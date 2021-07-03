@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
-    <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
-    <fullyQualifiedTypeName name="javax.persistence.Id"/>
     <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
@@ -15,7 +12,6 @@
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Clan"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Administrator"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Trener"/>
-    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Sala"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Ocena"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.repository.TerminRepository"/>
     <fullyQualifiedTypeName name="java.awt.PageAttributes.MediaType"/>
@@ -30,9 +26,7 @@
     <fullyQualifiedTypeName name="javax.persistence.Entity"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.repository.TreningRepository"/>
-    <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.TreningService"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.imp.TreningServiceImpl"/>
-    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Trening"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.dto.SortiranjeDTO"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="net.bytebuddy.asm.Advice.OffsetMapping.Sort"/>
@@ -58,6 +52,12 @@
     <fullyQualifiedTypeName name="org.springframework.validation.annotation.Validated"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.dto.TerminDTO"/>
-    <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.TerminService"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Termin"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.SalaService"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.TreningService"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.TerminService"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Sala"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.dto.SalaDTO"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Trening"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.dto.TreningDTO"/>
 </qualifiedTypeNameHistroy>

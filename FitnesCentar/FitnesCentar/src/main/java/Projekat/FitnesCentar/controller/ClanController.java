@@ -74,25 +74,49 @@ public ResponseEntity<ClanDTO> createClan(@RequestBody ClanDTO clanDTO) throws E
     return new ResponseEntity<>(noviClanDTO, HttpStatus.CREATED);
 }
 		@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE,produces= MediaType.APPLICATION_JSON_VALUE,value="/prijava/{id}")
-		public ResponseEntity<String> prijavaTermina(@PathVariable("id") Long clanId,
+		public ResponseEntity<ClanDTO> prijavaTermina(@PathVariable("id") Long clanId,
 		  @Validated @RequestBody Long terminId) throws Exception {
 			
 			 Clan clan = this.clanService.findOne(clanId);
 		     Termin termin = this.terminService.findOne(terminId);
 		     clan.prijaviTermin(termin);
-		     clanService.update(clan);
-		     return new ResponseEntity<>(new String(clanId+" je prijavio "+terminId),HttpStatus.OK); 
+		     Clan noviClan=clanService.update(clan);
+		     ClanDTO prijavljenClanDTO = new ClanDTO(
+		     		noviClan.getId(), 
+		             noviClan.getUsername(),
+		             noviClan.getPassword (),
+		             noviClan.getIme(),
+		             noviClan.getPrezime(),
+		     		noviClan.getKontaktTelefon (),
+		     		noviClan.getEmail (),
+		     		noviClan.getDatumRodjenja (),
+		     		noviClan.getUlogaKorisnika(),
+		     		noviClan.isAktivan()
+		     		);
+		     return new ResponseEntity<>(prijavljenClanDTO,HttpStatus.OK); 
 		}
 		
 		@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE,produces= MediaType.APPLICATION_JSON_VALUE,value="/odjava/{id}")
-		public ResponseEntity<String> odjavaTermina(@PathVariable("id") Long clanId,
+		public ResponseEntity<ClanDTO> odjavaTermina(@PathVariable("id") Long clanId,
 		  @Validated @RequestBody Long terminId) throws Exception {
 			
 			 Clan clan = this.clanService.findOne(clanId);
 		     Termin termin = this.terminService.findOne(terminId);
 		     clan.odjaviTermin(termin);
-		     clanService.update(clan);
-		     return new ResponseEntity<>(new String(clanId+" je prijavio "+terminId),HttpStatus.OK); 
+		     Clan noviClan=clanService.update(clan);
+		     ClanDTO odavljenClanDTO = new ClanDTO(
+		     		noviClan.getId(), 
+		             noviClan.getUsername(),
+		             noviClan.getPassword (),
+		             noviClan.getIme(),
+		             noviClan.getPrezime(),
+		     		noviClan.getKontaktTelefon (),
+		     		noviClan.getEmail (),
+		     		noviClan.getDatumRodjenja (),
+		     		noviClan.getUlogaKorisnika(),
+		     		noviClan.isAktivan()
+		     		);
+		     return new ResponseEntity<>(odavljenClanDTO,HttpStatus.OK); 
 		}
 
 	    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE,value="/{id}")

@@ -21,7 +21,7 @@ $(document).ready(function () {
 $(document).ready(function () {   
     $.ajax({
         type: "GET",                                          
-        url: "http://localhost:8081/api/RegistracijaTrenera/treninzi/"+localStorage.getItem("id"),   
+        url: "http://localhost:8081/api/RegistracijaTrenera/treninzi/",   
         dataType: "json",                                     
         success: function (response) {                        
             console.log("SUCCESS:\n", response);
@@ -44,47 +44,41 @@ $(document).ready(function () {
 				document.getElementById(id).appendChild(opt);
 		}
 
-// $(document).on("submit", "#noviTermin", function (event) {     
-    // event.preventDefault();                           
-    // let Ime     = $("#ime").val();
-    // let Prezime      =$("#prezime").val();
-    // let Username            =$("#username").val();
-    // let Password       =$("#password").val();
-    // let KontaktTelefon= $("#broj").val();
-    // let Email         = $("#email").val();
-    // let DatumRodjenja =  $("#datum").val();
-	// let Fcid = document.querySelector('#sala').value;
-
-    // let noviKorisnik = {
-	// fcid		:Fcid,
-	// username	:Username          ,
-	// password	:Password          ,
-	// ime			:Ime               ,
-	// prezime		:Prezime           ,
-	// telefon		:KontaktTelefon    ,
-	// email		:Email             ,
-	// datum		:DatumRodjenja
-	// } 
+$(document).on("submit", "#noviTermin", function (event) {     
+    event.preventDefault();                           
 	
-		// console.log(noviKorisnik.fcid);                         
-    // $.ajax({
-        // type: "POST",                                             
-        // url: "http://localhost:8081/api/RegistracijaTrenera",   
-        // dataType: "json",                                         
-        // contentType: "application/json",   
-        // data: JSON.stringify(noviKorisnik),                       
-        // success: function (response) {   
-		// console.log(response);
-		// if(response.username==null){
-		// alert("username vec postoji unesite drugi");
-           // window.location.href = "RegistracijaTrenera.html";           	
-        // }else{
-			// alert("Korisnik " +response.username +" " + response.id+ " radi u"+response.fcid);
-             // window.location.href = "Login.html";           	     
-        // }
-		// },
-        // error: function () {                                      				 
-            // alert("greska!!!!");
-        // }
-    // });
-// });
+    let Dan			 	 =$("#dani		").val();
+    let Cena			 =$("#cene		").val();
+    let Trener			 =localStorage.getItem("id");
+    let Sala	 		 = document.querySelector('#sala').value;
+    let Trening	 		 = document.querySelector('#trening').value;
+	
+	
+    let noviTermin = {
+		
+	dan			:Dan	,		 
+	cena		:Cena	,	 	 
+	trenerId		:Trener	,	 	 
+	salaId		:Sala	,	 	 
+	treningId		:Trening	,	 
+	}
+ 
+	                         
+    $.ajax({
+        type: "POST",                                             
+        url: "http://localhost:8081/api/RegistracijaTrenera/noviTermin",   
+        dataType: "json",                                         
+        contentType: "application/json",   
+        data: JSON.stringify(noviTermin),                       
+        success: function (response) {  
+		console.log(response);
+		
+            alert("Termin "+response.id+" je kreiran!");
+             window.location.href = "TreneroviTermini.html";      
+		
+		},
+        error: function () {                                      				 
+            alert("greska!!!!");
+        }
+    });
+});

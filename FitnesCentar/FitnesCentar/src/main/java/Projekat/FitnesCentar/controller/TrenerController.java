@@ -29,6 +29,7 @@ import Projekat.FitnesCentar.entity.dto.TerminDTO;
 import Projekat.FitnesCentar.entity.dto.TrenerDTO;
 import Projekat.FitnesCentar.entity.dto.TreningDTO;
 import Projekat.FitnesCentar.service.FitnesCentarService;
+import Projekat.FitnesCentar.service.SalaService;
 import Projekat.FitnesCentar.service.TerminService;
 import Projekat.FitnesCentar.service.TrenerService;
 import Projekat.FitnesCentar.service.TreningService;
@@ -41,18 +42,21 @@ import Projekat.FitnesCentar.service.TreningService;
 public class TrenerController {
     private final TrenerService trenerService;
     private final FitnesCentarService fitnesCentarService ;
-    final TreningService treningService ;
+    private final SalaService salaService ;
+    private final TreningService treningService ;
     private final TerminService terminService ;
 
     // constructor-based dependency injection
     @Autowired
     public TrenerController(TrenerService trenerService,
     						FitnesCentarService fitnesCentarService,
+    						SalaService salaService ,
     						TreningService treningService ,
     						TerminService terminService
     						) {
         this.trenerService = trenerService;
         this.fitnesCentarService= fitnesCentarService;
+        this.salaService =salaService;
         this.treningService =treningService;
         this.terminService=terminService;
     }
@@ -175,7 +179,7 @@ public class TrenerController {
     	}
     	return new ResponseEntity<>(salaDTOS, HttpStatus.OK);
     }
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE,value="/treninzi/{id}")//sala liste selekt
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE,value="/treninzi")//treninzi liste selekt
     public ResponseEntity<List<TreningDTO>> getVrsteTreninga()throws Exception  {
     	List<Trening> treninzi = treningService.findAll(); 
     	List<TreningDTO> treningDTOS = new ArrayList<>();
@@ -193,45 +197,30 @@ public class TrenerController {
     	}
     	return new ResponseEntity<>(treningDTOS, HttpStatus.OK);
     }
-/*
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<FitnesCentarDTO>> getFitnesCentari() {//punjenje liste selekt fitnes
-    	
-    	List<FitnesCentar> listaFitnesCentara = this.fitnesCentarService.findAll();
-    	List<FitnesCentarDTO> centarDTOS = new ArrayList<>();
-    	
-    	for (FitnesCentar centar: listaFitnesCentara) {
-    		
-    		FitnesCentarDTO centarDTO = new FitnesCentarDTO(
-    				centar.getId(),
-    				centar.getNaziv(),
-    				centar.getAdresa(),
-    				centar.getBrojTelefona(),
-    				centar.getEmail()
-    				);
-    		centarDTOS.add(centarDTO);
-    	}
-    	return new ResponseEntity<>(centarDTOS, HttpStatus.OK);
-    }
- * 
-    
-    --------
-	@PosttMapping(consumes=MediaType.APPLICATION_JSON_VALUE,produces= MediaType.APPLICATION_JSON_VALUE,value="/pravljenje")
-	public ResponseEntity<String> odjavaTermina(
+
+	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE,produces= MediaType.APPLICATION_JSON_VALUE,value="/noviTermin")
+	public ResponseEntity<TerminDTO> napraviTermin(
 	  @Validated @RequestBody TerminDTO terminDTO) throws Exception {
-			
-			Trener trener=this.trenerService.findOne(terminDTO.getTrenerId());
-			trener.getListaTreninga().add(
-				new Termin(
+			Termin termin=new Termin(
 				terminDTO.getDan(), 
-				terminDTO.getCena(), 
-				trener, 
+				terminDTO.getCena(),
+				this.trenerService.findOne(terminDTO.getTrenerId()),
 				this.salaService.findOne(terminDTO.getSalaId()), 
 				this.treningService.findById(terminDTO.getTreningId())
-				)
+				);
+			Termin noviTermin = this.terminService.create(termin);
+			TerminDTO noviTerminDTO = new TerminDTO(
+					noviTermin.getDan(),
+					noviTermin.getCena(),
+					noviTermin.getTrening().getNaziv(),
+					noviTermin.getTrening().getOpis(),
+					noviTermin.getTrening().getTipTreninga(),
+					noviTermin.getTrening().getTrajanje(),
+					noviTermin.getTrener().getId(),
+					noviTermin.getSala().getId(),
+					noviTermin.getTrener().getId()
 					);
-		
-		return new ResponseEntity<>("", HttpStatus.CREATED);
+			noviTerminDTO.setId(noviTermin.getId());
+		return new ResponseEntity<>(noviTerminDTO, HttpStatus.CREATED);
 		}
-		*/
 }

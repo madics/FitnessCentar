@@ -1,6 +1,7 @@
 package Projekat.FitnesCentar.service;
 
 import java.util.List;
+
 import Projekat.FitnesCentar.entity.Trener;
 
 public interface TrenerService {
@@ -14,6 +15,7 @@ public interface TrenerService {
 	Trener update(Trener trener);
 	/*
 */
+
 
 
 }

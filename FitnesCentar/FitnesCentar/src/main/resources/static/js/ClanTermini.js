@@ -18,13 +18,13 @@ $(document).on("submit", "#prijaviTermin", function (event) {
         success: function (response) {                              
             console.log(response);                              
 
-            alert(" termin prijavljen!");     
+            alert(" termin prijavljen!");                
+		console.log(localStorage.getItem("id")+","+id);
+             window.location.href = "ClanPrijavljeni.html";      
 			
         },
-        error: function () {                                        
-		console.log(localStorage.getItem("id")+","+id);
+        error: function () {                             
             alert("Greška!");
-             window.location.href = "ClanTermini.html";      
         }
     });
 });
@@ -143,8 +143,8 @@ $(document).on("submit", "#pretragaTermina", function (event) {
 				row += "<td>" + termin.opis + "</td>";      
 				row += "<td>" + termin.tipTreninga + "</td>";
 				row += "<td>" + termin.trajanje + "</td>"; 
-				row += "<td>" + "<input type='submit'  class='btnRegister'  value='Prijavi se' onclick='myFunction(" +termin.id+ ")'/></td></tr>";     
-                				
+				row += "<td   width='150' >" + "<input type='submit' id='"+termin.id+"' class='btnRegister'  value='Prijavi se' onclick='myFunction(" +termin.id+ ")'/></td></tr>";     
+      				
 				$('#termini').append(row);                  
 				
 			}
