@@ -53,11 +53,11 @@
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Termin"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.TreningService"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.TerminService"/>
-    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Sala"/>
-    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.dto.SalaDTO"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Trening"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.dto.TreningDTO"/>
-    <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.SalaService"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.dto.FitnesCentarDTO"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.FitnesCentarService"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.SalaService"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Sala"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.dto.SalaDTO"/>
 </qualifiedTypeNameHistroy>

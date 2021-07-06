@@ -2,16 +2,10 @@ package Projekat.FitnesCentar.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import Projekat.FitnesCentar.entity.FitnesCentar;
-import Projekat.FitnesCentar.entity.Korisnik;
 import Projekat.FitnesCentar.entity.Sala;
-import Projekat.FitnesCentar.entity.Trener;
-import Projekat.FitnesCentar.entity.dto.FitnesCentarDTO;
 import Projekat.FitnesCentar.entity.dto.SalaDTO;
-import Projekat.FitnesCentar.entity.dto.TrenerDTO;
 import Projekat.FitnesCentar.service.FitnesCentarService;
 import Projekat.FitnesCentar.service.SalaService;
-import Projekat.FitnesCentar.service.TrenerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

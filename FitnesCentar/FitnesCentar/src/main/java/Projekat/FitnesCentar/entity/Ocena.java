@@ -20,7 +20,13 @@ public class Ocena {
     private Clan clan;
     @ManyToOne(fetch = FetchType.EAGER)
     private Termin termin;
-	
+	public Ocena() {}
+	public Ocena(int ocena, Clan clan, Termin termin) {
+		super();
+		Ocena = ocena;
+		this.clan = clan;
+		this.termin = termin;
+	}
 	public long getId() {
 		return id;
 	}
@@ -40,4 +46,11 @@ public class Ocena {
 	public void setOcena(int ocena) {
 		Ocena = ocena;
 	}
+	public Termin getTermin() {
+		return termin;
+	}
+	public void setTermin(Termin termin) {
+		this.termin = termin;
+	}
+	
 }

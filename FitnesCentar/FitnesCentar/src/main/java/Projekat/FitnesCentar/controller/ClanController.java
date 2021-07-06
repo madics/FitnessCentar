@@ -19,10 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import Projekat.FitnesCentar.entity.Clan;
 import Projekat.FitnesCentar.entity.Korisnik;
+import Projekat.FitnesCentar.entity.Ocena;
 import Projekat.FitnesCentar.entity.Termin;
 import Projekat.FitnesCentar.entity.dto.ClanDTO;
+import Projekat.FitnesCentar.entity.dto.OcenaDTO;
 import Projekat.FitnesCentar.entity.dto.TerminDTO;
 import Projekat.FitnesCentar.service.ClanService;
+import Projekat.FitnesCentar.service.OcenaService;
 import Projekat.FitnesCentar.service.TerminService;
 
 
@@ -33,12 +36,14 @@ import Projekat.FitnesCentar.service.TerminService;
 public class ClanController {
     private final ClanService clanService;
     private final TerminService terminService;
+    private final OcenaService ocenaService;
 
     // constructor-based dependency injection
     @Autowired
-    public ClanController(ClanService clanService,TerminService terminService) {
+    public ClanController(ClanService clanService,TerminService terminService,OcenaService ocenaService) {
         this.clanService = clanService;
         this.terminService = terminService;
+        this.ocenaService = ocenaService;
     }
 @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE)
@@ -142,13 +147,43 @@ public ResponseEntity<ClanDTO> createClan(@RequestBody ClanDTO clanDTO) throws E
 	        }
 	        return new ResponseEntity<>(terminDTOS, HttpStatus.OK);
 	    }
-		
-		
-		
-		
-		
-		
-		
+
+	    @GetMapping(produces= MediaType.APPLICATION_JSON_VALUE,value="/podaci/{id}")
+		public ResponseEntity<ClanDTO> getPodaci(@PathVariable("id") Long clanId) throws Exception{
+			 Clan clan = this.clanService.findOne(clanId);
+		     ClanDTO clanDTO = new ClanDTO(
+		    		 	clan.getId(), 
+			            clan.getUsername(),
+			            clan.getPassword (),
+			            clan.getIme(),
+			            clan.getPrezime(),
+			     		clan.getKontaktTelefon (),
+			     		clan.getEmail (),
+			     		clan.getDatumRodjenja (),
+			     		clan.getUlogaKorisnika(),
+			     		clan.isAktivan()
+			     		);
+			return new ResponseEntity<>(clanDTO ,HttpStatus.OK); 
+	    }
+		@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE,produces= MediaType.APPLICATION_JSON_VALUE,value="/oceni")
+		public ResponseEntity<OcenaDTO> napraviOcenu(
+		  @Validated @RequestBody OcenaDTO ocenaDTO) throws Exception {
+				Ocena ocena=new Ocena(
+						ocenaDTO.getOcena(),
+						this.clanService.findOne(ocenaDTO.getClanId()),
+						this.terminService.findOne(ocenaDTO.getTerminId())
+					);
+				Ocena noviOcena = this.ocenaService.create(ocena);
+				OcenaDTO noviOcenaDTO = new OcenaDTO(
+						noviOcena.getOcena(),
+						noviOcena.getClan().getId(),
+						noviOcena.getTermin().getId()
+						);
+				noviOcenaDTO.setId(noviOcena.getId());
+			return new ResponseEntity<>(noviOcenaDTO, HttpStatus.CREATED);
+			}
+
+
 		
 		
 }

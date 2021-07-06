@@ -2,9 +2,11 @@ package Projekat.FitnesCentar.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import Projekat.FitnesCentar.entity.Clan;
 import Projekat.FitnesCentar.entity.Termin;
 import Projekat.FitnesCentar.entity.Trening;
 import Projekat.FitnesCentar.entity.dto.TerminDTO;
+import Projekat.FitnesCentar.service.ClanService;
 import Projekat.FitnesCentar.service.TerminService;
 import Projekat.FitnesCentar.service.TreningService;
 import org.springframework.http.HttpStatus;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 @RestController
@@ -22,13 +25,36 @@ public class TerminController {
 
     private final TerminService terminService;
     private final TreningService treningService;
+    private final ClanService clanService;
     // constructor-based dependency injection
     @Autowired
-    public TerminController(TerminService terminService,TreningService treningService) {
+    public TerminController(TerminService terminService,TreningService treningService, ClanService clanService) {
         this.terminService= terminService;
         this.treningService= treningService;
+        this.clanService= clanService;
     }
 
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE,value="/odradjeni/{id}")
+    public ResponseEntity<List<TerminDTO>> getOdradjeniTreninzi(@PathVariable("id") Long clanId)throws Exception {//lista odradjenih clana
+
+    	Clan clan= clanService.findOne(clanId);
+    	Set<Termin> listaTermina = clan.getOdradjeniTreninzi();
+    	List<TerminDTO> terminDTOS = new ArrayList<>();
+        for (Termin termin: listaTermina) {
+        	
+        	TerminDTO terminDTO = new TerminDTO(
+        				termin.getId(),
+        				termin.getDan(),
+        				termin.getCena(),
+        				termin.getTrening().getNaziv(),
+        				termin.getTrening().getOpis(),
+        				termin.getTrening().getTipTreninga(),
+        				termin.getTrening().getTrajanje()
+        			);
+        	terminDTOS.add(terminDTO);
+        }
+        return new ResponseEntity<>(terminDTOS, HttpStatus.OK);
+    }
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<TerminDTO>> getTermini() {
 

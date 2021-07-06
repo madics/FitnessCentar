@@ -4,19 +4,19 @@
     <title>Registracija Clana</title>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!-- }); -->
-<!-- </script> -->
-    <!-- 1. Ukljucivanje jQuery biblioteke -->
     <script src="js/jquery.min.js"></script>
-    <!-- 2. Ukljucivanje jQuery Validate biblioteke za validaciju polja forme (opciono).
-            O načinu upotrebe pogledati na: https://jqueryvalidation.org/ -->
     <script src="js/jquery.validate.min.js"></script>
-    <!-- 3. Ukljucivanje naseg JS fajla -->
-    <script src="js/RegistracijaKorisnika.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css\RegistracijaClana.css"/>
+<style>
+.register{
+width:1200;
+margin-left:20%;
+}
+</style>
+    <script src="js/Clan.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-light">
@@ -44,6 +44,43 @@
     </div>
   </div>
 </nav>
+
+<div class=" register ">
+
+        <h1>Moj profil i treninzi</h1>
+        <br><br>
+					<div class="row">
+		
+                                    <div class="col-md-4">
+
+			<label >Ime:</label>
+			<label id="ime">Ime:</label><br>
+			<label >Prezime:</label>
+			<label id="prezime" >Prezime:</label><br>
+			<label >Broj Telefona:</label>
+			<label id="broj">Broj Telefona:</label><br>
+			<label >Email:</label>
+			<label id="email">Email:</label><br>
+    </div>
+                                    <div class="col-md-6" 	>
+		<form id="Oceni" >
+		<table id="termini" width="600">
+		
+                <thead>
+                    <th>Id			</th>
+                    <th>Dan			</th>
+                    <th>Cena			</th>
+                    <th>Naziv		</th>
+                    <th>Opis		</th>
+                    <th>Tip				</th>
+                    <th>Trajanje		</th>
+                </thead>                
+            </table>
+		</form>
+    
+    </div>
+	</div>
+	</div>
 </body>
       
 </html>

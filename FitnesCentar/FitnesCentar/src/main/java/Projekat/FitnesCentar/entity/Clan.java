@@ -24,7 +24,8 @@ public class Clan extends Korisnik {
             joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
     private Set<Termin> OdradjeniTreninzi = new HashSet<>();
-    @ManyToMany
+
+	@ManyToMany
     @JoinTable(name = "listaPrijavljenih",
             joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
@@ -45,4 +46,10 @@ public class Clan extends Korisnik {
 	}
 	
    
+	public Set<Termin> getOdradjeniTreninzi() {
+		return OdradjeniTreninzi;
+	}
+	public void setOdradjeniTreninzi(Set<Termin> odradjeniTreninzi) {
+		OdradjeniTreninzi = odradjeniTreninzi;
+	}
 }
