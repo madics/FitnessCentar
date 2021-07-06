@@ -3,8 +3,11 @@ package Projekat.FitnesCentar.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import Projekat.FitnesCentar.entity.FitnesCentar;
+import Projekat.FitnesCentar.entity.Korisnik;
+import Projekat.FitnesCentar.entity.Sala;
 import Projekat.FitnesCentar.entity.Trener;
 import Projekat.FitnesCentar.entity.dto.FitnesCentarDTO;
+import Projekat.FitnesCentar.entity.dto.SalaDTO;
 import Projekat.FitnesCentar.entity.dto.TrenerDTO;
 import Projekat.FitnesCentar.service.FitnesCentarService;
 import Projekat.FitnesCentar.service.SalaService;
@@ -38,34 +41,62 @@ public class SalaController {
         this.salaService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-    
-    
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<SalaDTO>> getSale() {//prikaz svih sala
+
+    	List<Sala> listaSala = this.salaService.findAll();
+        List<SalaDTO> salaDTOS = new ArrayList<>();
+
+        for (Sala sala: listaSala) {
+        	
+            SalaDTO salaDTO = new SalaDTO(
+            		sala.getId(),
+            		sala.getKapacitet(),
+            		sala.getOznakaSale(),
+            		sala.getFitnesCentar().getId()
+            		);
+            	salaDTOS.add(salaDTO);
+        }
+        return new ResponseEntity<>(salaDTOS, HttpStatus.OK);
+    }
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<SalaDTO> createSala(@RequestBody SalaDTO salaDTO) throws Exception {//pravljenje sale
+        Sala sala = new Sala(
+                salaDTO.getKapacitet(),
+                salaDTO.getOznakaSale(),
+                fitnesService.findById(salaDTO.getFcid())
+        		);
+        Sala noviSala = salaService.create(sala);
+
+        SalaDTO noviSalaDTO = new SalaDTO(
+        		noviSala.getId(),
+        		noviSala.getKapacitet(),
+        		noviSala.getOznakaSale(),
+                noviSala.getFitnesCentar().getId()
+        		);
+
+        return new ResponseEntity<>(noviSalaDTO, HttpStatus.CREATED);
+    }
+	@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE,produces= MediaType.APPLICATION_JSON_VALUE,value="/{id}")
+	public ResponseEntity<SalaDTO> updateSala(@PathVariable("id") Long salaId,
+	  @Validated @RequestBody SalaDTO salaDTO) throws Exception {
+		
+	     Sala sala = this.salaService.findOne(salaId);
+	     sala.setKapacitet(salaDTO.getKapacitet());
+	     sala.setOznakaSale(salaDTO.getOznakaSale());
+	     Sala updatedSala = salaService.update(sala);
+	     SalaDTO noviSalaDTO = new SalaDTO(
+	    		 updatedSala.getId(),
+	    		 updatedSala.getKapacitet(),
+	    		 updatedSala.getOznakaSale(),
+	    		 updatedSala.getFitnesCentar().getId()
+	     		);
+	     return new ResponseEntity<>(noviSalaDTO,HttpStatus.OK); 
+	}
     /*
      * 
-     * @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TrenerDTO>> getSale() {//prikaz trenera za odobravanje
-
-    	List<Trener> listaTrenera = this.trenerService.findAll();
-        List<TrenerDTO> trenerDTOS = new ArrayList<>();
-
-        for (Trener trener: listaTrenera) {
-        	
-            TrenerDTO trenerDTO = new TrenerDTO(
-            		trener.getId(),
-            		trener.getUsername(),
-                    trener.getPassword (),
-                    trener.getIme(),
-                    trener.getPrezime(),
-            		trener.getKontaktTelefon (),
-            		trener.getEmail (),
-            		trener.getDatumRodjenja (),
-            		trener.getUlogaKorisnika(),
-            		trener.isAktivan()
-            		);
-        			if(!trener.isAktivan())trenerDTOS.add(trenerDTO);
-        }
-        return new ResponseEntity<>(trenerDTOS, HttpStatus.OK);
-    }
+     * 
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE,value="/svi")//svi fitnesi
     public ResponseEntity<List<TrenerDTO>> getSviTreneri()throws Exception  {
@@ -91,27 +122,7 @@ public class SalaController {
         return new ResponseEntity<>(trenerDTOS, HttpStatus.OK);
     }
 
-	@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE,produces= MediaType.APPLICATION_JSON_VALUE,value="/{id}")
-	public ResponseEntity<TrenerDTO> updateTrener(@PathVariable("id") Long trenerId,
-	  @Validated @RequestBody Long id) throws Exception {
-		
-	     Trener trener = this.trenerService.findOne(id);
-	     Trener updatedTrener = trenerService.update(trener);
-	     TrenerDTO noviTrenerDTO = new TrenerDTO(
-				updatedTrener.getId(),
-				updatedTrener.getFitnesCentar().getId(),
-				 updatedTrener.getUsername(),
-				 updatedTrener.getPassword (),
-				 updatedTrener.getIme(),
-				 updatedTrener.getPrezime(),
-				updatedTrener.getKontaktTelefon (),
-				updatedTrener.getEmail (),
-				updatedTrener.getDatumRodjenja (),
-				updatedTrener.getUlogaKorisnika(),
-				updatedTrener.isAktivan()
-	     		);
-	     return new ResponseEntity<>(noviTrenerDTO,HttpStatus.OK); 
-	}
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE,value="/fitnes")//svi fitnesi
     public ResponseEntity<List<FitnesCentarDTO>> getFitnesi()throws Exception  {
     	List<FitnesCentar> listaCentara= this.fitnesService.findAll();

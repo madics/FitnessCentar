@@ -12,26 +12,26 @@ function myFunction(id) {
 	x=y.getElementsByTagName("TD")[2];
 	document.getElementById("oznake").value=x.innerText;
 	if(pritisnut)document.getElementById('collapseExample').id = 'collapseExampleLock';
-	pritisnut=true;
+	else pritisnut=true;
 	}
 $(document).on("submit", "#izmeniSalu", function (event) {     //PUT ZA IZMENU
     event.preventDefault();        
     let Id = odabran;
-    let Kapacitet		 =$("#	kapaciteti").val();
-    let Oznaka	 	 =$("#	oznake	").val();
+    let Kapacitet		 =$("#kapaciteti").val();
+    let Oznaka	 	 =$("#oznake").val();
 	
     let Izmene = {
 		
 	id			:odabran,
-	kapacitet		:Kapacitet	,		 
-	oznaka		:Oznaka	
+	kapacitet	:Kapacitet	,		 
+	oznakaSale		:Oznaka	
 	}
 	console.log(Izmene);
 
     $.ajax({
         type: "PUT",                                               
         dataType: "json",                                           
-        url: "http://localhost:8081/api/sala"+odabran,   
+        url: "http://localhost:8081/api/sala/"+odabran,   
         contentType: "application/json",                            
         data: JSON.stringify(Izmene),                        
         success: function (response) {                              
@@ -55,7 +55,7 @@ $(document).on('click', '.brisi', function () {// Brisanje postojećeg zaposleno
         success: function () {
             console.log("SUCCESS");
             $('[data-id="' + odabran + '"]').parent().remove();  // ukloni red tabele u kom se nalazi element sa data-id atributom = employeeId
-             window.location.href = "Sala.html";  
+             window.location.href = "Sale.html";  
         },
         error: function () {
             alert("Greška prilikom brisanja zaposlenog!");
@@ -75,7 +75,7 @@ $(document).on('click', '.brisi', function () {// Brisanje postojećeg zaposleno
                 let row = "<tr id='"+sala.id+"'>";                             
                 row += "<td>" + sala.id + "</td>";      
                 row += "<td>" + sala.kapacitet + "</td>";     
-                row += "<td>" + sala.oznaka+ "</td>";    
+                row += "<td>" + sala.oznakaSale+ "</td>";    
 				row += "<td   width='150' >" + "<input  data-toggle='collapse' href='#collapseExample'   type='button' class='btnRegister'  value='Izmeni' onclick='myFunction(" +sala.id+ ")'/></td>";     
 				
 				row += "<td   width='150' >" + "<input   type='button' class='btnRegister brisi'  value='Obrisi' onclick='myFunction(" +sala.id+ ")'/></td></tr>";     
@@ -88,5 +88,31 @@ $(document).on('click', '.brisi', function () {// Brisanje postojećeg zaposleno
             console.log("ERROR:\n", response);
         }
     });
-});       
+}); 
+$(document).ready(function () {   //select fitness
+    $.ajax({
+        type: "GET",                                          
+        url: "http://localhost:8081/api/RegistracijaTrenera",   
+        dataType: "json",                                     
+        success: function (response) {                        
+            console.log("SUCCESS:\n", response);
+			
+            for (let fc of response)
+				 popuniSelect(fc.naziv,fc.id,"fitnesCentar");
+			 document.getElementById("fcPlaceHolder").style.display = "none";
+
+        },
+        error: function (response) {                             
+            console.log("ERROR:\n", response);
+        }
+    });
+});
+
+        function popuniSelect(tekst,fcid,id) {
+				var opt = document.createElement('option');
+				opt.appendChild( document.createTextNode(tekst) );
+				opt.value = fcid;
+				document.getElementById(id).appendChild(opt);
+		}
+
 

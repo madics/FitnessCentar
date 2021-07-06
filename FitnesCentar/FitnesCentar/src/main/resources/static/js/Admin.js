@@ -159,6 +159,37 @@ $(document).on("submit", "#odobravanjeTrenera", function (event) {
 
 
 
+$(document).on("submit", "#dodajSalu", function (event) {     
+    event.preventDefault();    
+    let Kapacitet		 =$("#kapaciteti").val();
+    let Oznaka	 	 =$("#oznake").val();
+	let Fcid = document.querySelector('#fitnesCentar').value;
+		
+    let novaSala = {
+	kapacitet		:Kapacitet	,		 
+	oznakaSale		:Oznaka	,
+	fcid :Fcid
+	}
+	console.log(novaSala);
+
+    
+
+    $.ajax({
+        type: "POST",                                               
+        url: "http://localhost:8081/api/sala",                
+        dataType: "json",                                           
+        contentType: "application/json",                            
+        data: JSON.stringify(novaSala),                        
+        success: function (response) {                              
+            console.log(response);                              
+
+            window.location.href = "Sale.html";              
+        },
+        error: function () {                                        
+            alert("Greška prilikom dodavanja fitness centra!");
+        }
+    });
+});
 		
 		
 		

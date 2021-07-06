@@ -20,8 +20,14 @@ public class Sala {
     @ManyToOne(fetch = FetchType.EAGER)
     private FitnesCentar fitnescentar;
     
+    public Sala() {}
     
-    
+	public Sala(int kapacitet, String oznakaSale, FitnesCentar fitnescentar) {
+		super();
+		Kapacitet = kapacitet;
+		OznakaSale = oznakaSale;
+		this.fitnescentar = fitnescentar;
+	}
 	public FitnesCentar getFitnesCentar() {
 		return fitnescentar;
 	}
