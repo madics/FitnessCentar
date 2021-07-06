@@ -7,6 +7,7 @@ import Projekat.FitnesCentar.entity.Trener;
 import Projekat.FitnesCentar.entity.dto.FitnesCentarDTO;
 import Projekat.FitnesCentar.entity.dto.TrenerDTO;
 import Projekat.FitnesCentar.service.FitnesCentarService;
+import Projekat.FitnesCentar.service.SalaService;
 import Projekat.FitnesCentar.service.TrenerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,20 +20,30 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "/api/zahtevi")
-public class ZahteviController {
+@RequestMapping(value = "/api/sala")
+public class SalaController {
 
-    private final TrenerService trenerService;
+    private final SalaService salaService ;
     private final FitnesCentarService fitnesService;
     // constructor-based dependency injection
     @Autowired
-    public ZahteviController(TrenerService trenerService,FitnesCentarService fitnesService) {
-        this.trenerService= trenerService;
+    public SalaController(SalaService salaService,FitnesCentarService fitnesService) {
+        this.salaService= salaService;
         this.fitnesService= fitnesService;
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TrenerDTO>> getTreneri() {//prikaz trenera za odobravanje
+    
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> deleteSala(@PathVariable Long id) {
+        this.salaService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    
+    
+    /*
+     * 
+     * @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TrenerDTO>> getSale() {//prikaz trenera za odobravanje
 
     	List<Trener> listaTrenera = this.trenerService.findAll();
         List<TrenerDTO> trenerDTOS = new ArrayList<>();
@@ -144,5 +155,6 @@ public class ZahteviController {
 						
 						return new ResponseEntity<>(noviFitnesCentarDTO, HttpStatus.CREATED);
 				}
+    */
 
 }

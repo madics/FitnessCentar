@@ -16,6 +16,8 @@ public interface TrenerService {
 	/*
 */
 
+	void delete(Long id);
+
 
 
 }

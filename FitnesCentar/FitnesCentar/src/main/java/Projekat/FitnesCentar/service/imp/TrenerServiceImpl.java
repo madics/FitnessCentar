@@ -53,6 +53,10 @@ import Projekat.FitnesCentar.service.TrenerService;
 	/*
 	*/
 
+    @Override
+    public void delete(Long id) {
+        this.trenerRepository.deleteById(id);
+    }
 
 
 	}

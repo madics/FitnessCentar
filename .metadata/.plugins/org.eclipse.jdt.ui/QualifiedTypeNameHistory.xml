@@ -38,11 +38,9 @@
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Korisnik.Uloga"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Korisnik"/>
-    <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.FitnesCentarService"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.repository.FitnesCentarRepository"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.TrenerService"/>
     <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
-    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.dto.FitnesCentarDTO"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
@@ -53,11 +51,13 @@
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.dto.TerminDTO"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Termin"/>
-    <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.SalaService"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.TreningService"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.TerminService"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Sala"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.dto.SalaDTO"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.Trening"/>
     <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.dto.TreningDTO"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.SalaService"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.entity.dto.FitnesCentarDTO"/>
+    <fullyQualifiedTypeName name="Projekat.FitnesCentar.service.FitnesCentarService"/>
 </qualifiedTypeNameHistroy>

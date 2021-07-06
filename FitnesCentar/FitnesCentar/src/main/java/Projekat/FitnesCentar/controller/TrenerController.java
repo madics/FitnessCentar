@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -74,6 +75,45 @@ public class TrenerController {
                 trenerDTO.getDatum(),
                 Korisnik.Uloga.TRENER,
                 false,
+                fitnesCentarService.findById(trenerDTO.getFcid())
+        		);
+
+    	List<Trener> sviTreneri= this.trenerService.findAll();
+        for (Korisnik k: sviTreneri)if(k.getUsername().equals(trener.getUsername()))return new ResponseEntity<>(new TrenerDTO(), HttpStatus.ALREADY_REPORTED);
+
+        Trener noviTrener = trenerService.create(trener);
+
+        TrenerDTO noviTrenerDTO = new TrenerDTO(
+        		noviTrener.getId(),
+        		noviTrener.getFitnesCentar().getId(),
+                noviTrener.getUsername(),
+                noviTrener.getPassword (),
+                noviTrener.getIme(),
+                noviTrener.getPrezime(),
+        		noviTrener.getKontaktTelefon (),
+        		noviTrener.getEmail (),
+        		noviTrener.getDatumRodjenja (),
+        		noviTrener.getUlogaKorisnika(),
+        		noviTrener.isAktivan()
+        		);
+
+        return new ResponseEntity<>(noviTrenerDTO, HttpStatus.CREATED);
+    }
+
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE,value="/admin")
+    public ResponseEntity<TrenerDTO> createTrenerAdmin(@RequestBody TrenerDTO trenerDTO) throws Exception {//pravljenje trenera
+        Trener trener = new Trener(
+        		
+                trenerDTO.getUsername(),
+                trenerDTO.getPassword (),
+                trenerDTO.getIme(),
+                trenerDTO.getPrezime(),
+                trenerDTO.getTelefon (),
+                trenerDTO.getEmail (),
+                trenerDTO.getDatum(),
+                Korisnik.Uloga.TRENER,
+                true,
                 fitnesCentarService.findById(trenerDTO.getFcid())
         		);
 
@@ -223,4 +263,9 @@ public class TrenerController {
 			noviTerminDTO.setId(noviTermin.getId());
 		return new ResponseEntity<>(noviTerminDTO, HttpStatus.CREATED);
 		}
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> deleteTrenera(@PathVariable Long id) {
+        this.trenerService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

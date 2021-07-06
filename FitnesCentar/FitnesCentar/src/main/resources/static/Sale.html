@@ -10,7 +10,7 @@
     
 	<script src="js/jquery.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
-    <script src="js/Admin.js"></script>
+    <script src="js/Sale.js"></script>
 </head>
 <style>
 
@@ -61,40 +61,55 @@ display :none;
                     <div class="col-md-9 register-right">
                         <ul class="nav nav-tabs nav-justified "  style="width:200;"  id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link	" id="profile-tab"  href="FitnesCentri.html" >Izmena</a>
+                                <a class="nav-link	active" id="profile-tab"  href="Sale.html" >Izmena</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab"  href="KreirajCentar.html" >Kreiranje</a>
+                                <a class="nav-link" id="home-tab"  href="KreirajSalu.html" >Kreiranje</a>
                             </li>
                         </ul>
-						<br><h3 class="register-heading">Napravi novi fitnes centar</h3>
-                                
-								                        <div class="tab-content" id="myTabContent">
+						<br>
+						<br>
+						<br>
+						<br>
+                        <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <form id="dodajCentar" class="forma">
-									<div class="row register-form">
-										<div class="col-md-6">
-											<div class="form-group">
-															<input id="naziv"		 type="text" class="form-control" placeholder="Naziv*"  />
-											</div>
-											<div class="form-group">
-															<input id="adresa" 	type="text" class="form-control" placeholder="Adresa*" />
-											</div>
-											<div class="form-group">
-															<input id="broj" type="text" class="form-control" placeholder="Broj Telefona*" />
-											</div>
-											<div class="form-group">
-															<input id="email" 	type="text" class="form-control"  placeholder="Email*" />
-											</div>
-											
-											<input type="submit"  class="btnRegister"  value="Sačuvaj"/>
-										</div>
-									 </div>
-								</form>
-								
-                                </div>
-                                    </div>
-						</div>
+							<div class="form-group">
+							 <form id="prijaviTermin">
+									<table id="fitnesi">
+									
+											<thead>
+												<th>Id			</th>
+												<th>Kapacitet			</th>
+												<th>Oznaka			</th>
+											</thead>                
+										</table>
+									</form>
+									<!-- NESTAJUCA FORMA -->
+									<div class="collapse" id="collapseExample">
+									<div class="card card-body">
+
+									<form id="izmeniSalu" class="izmene">
+
+									<label >Izmeni:</label>
+									<br>
+									<label >Kapacitet		:</label>
+									<input type="text" id="kapaciteti" onChange="" >
+									<br>
+
+									<label >Oznaka	:</label>
+									<input type="text" id="oznake" onChange="" >
+									<br>
+
+									<input type="submit" value="Sacuvaj">
+									</form>
+									</div>
+									</div>
+									<!-- NESTAJUCA FORMA -->
+                                        </div>
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div>
 
             </div>	

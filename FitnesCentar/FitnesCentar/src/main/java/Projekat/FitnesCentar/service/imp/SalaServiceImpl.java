@@ -51,6 +51,10 @@ import Projekat.FitnesCentar.service.SalaService;
 	}
 	/*
 	*/
+    @Override
+    public void delete(Long id) {
+        this.salaRepository.deleteById(id);
+    }
 
 
 

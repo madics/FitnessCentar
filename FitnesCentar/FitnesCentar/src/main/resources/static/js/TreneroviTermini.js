@@ -52,12 +52,12 @@ $(document).on("submit", "#izmeniTermin", function (event) {     //PUT ZA IZMENU
         contentType: "application/json",                            
         data: JSON.stringify(Izmene),                        
         success: function (response) {                              
-            console.log(response);                              
+            console.log(response);         
+             window.location.href = "TreneroviTermini.html";                      
 			
         },
         error: function () {                                    
-            alert("Greška!");
-             window.location.href = "ClanTermini.html";      
+            alert("Greška!");     
         }
     });
 });

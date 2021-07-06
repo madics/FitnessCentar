@@ -15,5 +15,7 @@ public interface SalaService {
 	/*
 */
 
+	void delete(Long id);
+
 
 }
