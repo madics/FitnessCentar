@@ -1,12 +1,8 @@
 
 let odabran=0;
-let ocena=0;
 
 function myFunction(id,oc) {
 	odabran=id;
-	ocena=oc;
-		console.log(odabran);
-		console.log(ocena);   
 	}
 
 $(document).on("submit", "#prijaviTermin", function (event) {     
@@ -53,21 +49,8 @@ $(document).on("submit", "#prijaviTermin", function (event) {
                 row += "<td>" + termin.opis + "</td>";      
                 row += "<td>" + termin.tipTreninga + "</td>";
                 row += "<td>" + termin.trajanje + "</td>";  
-				row += "<td   width='80' >" + "<input type='submit' id='"+termin.id+"' class='btnRegister'  value='1' onclick='myFunction(" +termin.id+",1)'/></td>";     
-				row += "<td   width='80' >" + "<input type='submit' id='"+termin.id+"' class='btnRegister'  value='2' onclick='myFunction(" +termin.id+",2)'/></td>";     
-				row += "<td   width='80' >" + "<input type='submit' id='"+termin.id+"' class='btnRegister'  value='3' onclick='myFunction(" +termin.id+",3)'/></td>";     
-				row += "<td   width='80' >" + "<input type='submit' id='"+termin.id+"' class='btnRegister'  value='4' onclick='myFunction(" +termin.id+",4)'/></td>";     
-				row += "<td   width='80' >" + "<input type='submit' id='"+termin.id+"' class='btnRegister'  value='5' onclick='myFunction(" +termin.id+",5)'/></td></tr>";     
-                
                 $('#termini').append(row);              
-				
-				 popuniSelect(termin.dan,"dani"     );
-				 popuniSelect(termin.cena,"cene"     );
-				 popuniSelect(termin.naziv,"nazivi"   );
-				 popuniSelect(termin.opis,"opisi"    );
-				 popuniSelect(termin.tipTreninga,"tipovi"   );
-				 popuniSelect(termin.trajanje ,"trajanja" );
-				
+
             }
         },
         error: function (response) {                             
@@ -129,36 +112,6 @@ $(document).ready(function () {
 							}
 					}
 		}
-
-$(document).on("submit", "#Oceni", function (event) {     
-    event.preventDefault();                            	            
-    let oc= ocena;
-    let termin = odabran;
-	let clan =localStorage.getItem("id");
-		
-    let novaOcena = {
-	ocena			:oc	,		 
-	clanId		:clan	,	 
-	terminId		:termin	
-	}
-	
-    $.ajax({
-        type: "POST",                                             
-        url: "http://localhost:8081/api/RegistracijaClana/oceni",             
-        dataType: "json",                                         
-        contentType: "application/json",   
-        data: JSON.stringify(novaOcena),                       
-        success: function (response) {   
-		console.log(response);                         
-		
-
-		},
-        error: function () {                                      				 
-            alert("greska!!!!");
-        }
-    });
-});
-		
 
 		
 		

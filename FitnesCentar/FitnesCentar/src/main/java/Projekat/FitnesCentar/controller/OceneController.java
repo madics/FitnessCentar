@@ -52,15 +52,20 @@ public class OceneController {
     	Clan clan = this.clanService.findOne(clanId);
     	List<Ocena> ocene= ocenaService.findAll(); 
     	Set<Termin> odradjeni= clan.getOdradjeniTreninzi();
+    	List<Termin> ocenjeni= new ArrayList<>();
     	List<TerminDTO> terminDTOS = new ArrayList<>();
-    	
-    	for (Ocena ocena: ocene) {
-    		if(!odradjeni.contains(ocena.getTermin()))
-    		terminDTOS.add( new TerminDTO(
-    				ocena.getTermin().getTrening(),
-    				ocena.getTermin()
+
+		for (Ocena ocena: ocene)if(clanId==ocena.getClan().getId()&&!ocenjeni.contains(ocena.getTermin()))ocenjeni.add(ocena.getTermin());
+    	for (Termin termin: odradjeni) {
+    				if(!ocenjeni.contains(termin))
+    				terminDTOS.add( new TerminDTO(
+    				termin.getTrening(),
+    				termin
     				));
-    	}
+    				
+        		
+    		}
+     
     	return new ResponseEntity<>(terminDTOS, HttpStatus.OK);
     }
 }

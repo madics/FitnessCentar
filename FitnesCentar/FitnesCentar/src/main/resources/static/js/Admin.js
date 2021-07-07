@@ -148,7 +148,7 @@ $(document).on("submit", "#odobravanjeTrenera", function (event) {
             console.log(response);                              
 
             alert(response.ime+ " trener odobren!");     
-             window.location.href = "Admin.html";      
+             window.location.href = "Zahtevi.html";      
 			
         },
         error: function () {                                        

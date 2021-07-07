@@ -55,6 +55,10 @@ INSERT INTO LISTA_PRIJAVLJENIH (clan_id,termin_id
 
 INSERT INTO LISTA_POSETIOCA (clan_id,termin_id
 ) VALUES (3,2);
+INSERT INTO LISTA_POSETIOCA (clan_id,termin_id
+) VALUES (3,3);
+INSERT INTO LISTA_POSETIOCA (clan_id,termin_id
+) VALUES (3,4);
 
 
 INSERT INTO OCENA (ocena,clan_id,termin_id
