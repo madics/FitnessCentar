@@ -1,5 +1,7 @@
 package Projekat.FitnesCentar.service.imp;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +26,9 @@ public class OcenaServiceImpl implements OcenaService{
 	    Ocena noviOcena= this.ocenaRepository.save(ocena);
 	    return noviOcena;
 	}
+    public List<Ocena> findAll() {
+    	List<Ocena> ocene = this.ocenaRepository.findAll();
+        return ocene;
 
+	}
 }

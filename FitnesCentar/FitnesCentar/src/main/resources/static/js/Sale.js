@@ -46,7 +46,7 @@ $(document).on("submit", "#izmeniSalu", function (event) {     //PUT ZA IZMENU
 });
 
 
-$(document).on('click', '.brisi', function () {// Brisanje postojećeg zaposlenog
+$(document).on('click', '.brisi', function () {// Brisanje postojece sale
     
     $.ajax({
         type: "DELETE",
@@ -63,7 +63,8 @@ $(document).on('click', '.brisi', function () {// Brisanje postojećeg zaposleno
     });
 });
 
-		$(document).ready(function () {   //GET ZA DOBIJANJE FITNES Centara
+		$(document).ready(function () {   //GET ZA DOBIJANJE SALA
+		
     $.ajax({
         type: "GET",                                          
         url: "http://localhost:8081/api/sala",               
@@ -115,4 +116,42 @@ $(document).ready(function () {   //select fitness
 				document.getElementById(id).appendChild(opt);
 		}
 
+$(document).on("submit", "#pretragaTermina", function (event) {     
+    event.preventDefault();                            	            
+    $.ajax({
+        type: "POST",                                             
+        url: "http://localhost:8081/api/fitnes/pretraga",   
+        dataType: "json",                                         
+        contentType: "application/json",   
+        data: JSON.stringify(document.querySelector('#fitnesCentar').value),                       
+        success: function (response) {   
+		console.log(response);                         
+		
+			$("#fitnesi tr").remove(); 
+			let row = "<tr><th>Id</th><th>Kapacitet</th><th>Oznaka</th></tr>"; 
+			$('#fitnesi').append(row);   
+			
+			
+            for (let sala of response) {                  
+                let row = "<tr id='"+sala.id+"'>";                             
+                row += "<td>" + sala.id + "</td>";      
+                row += "<td>" + sala.kapacitet + "</td>";     
+                row += "<td>" + sala.oznakaSale+ "</td>";    
+				row += "<td   width='150' >" + "<input  data-toggle='collapse' href='#collapseExample'   type='button' class='btnRegister'  value='Izmeni' onclick='myFunction(" +sala.id+ ")'/></td>";     
+				
+				row += "<td   width='150' >" + "<input   type='button' class='btnRegister brisi'  value='Obrisi' onclick='myFunction(" +sala.id+ ")'/></td></tr>";     
+				
+                $('#fitnesi').append(row);              
+				
+            }
+		},
+        error: function () {                                      				 
+            alert("greska!!!!");
+        }
+    });
+});
+		
 
+		
+		
+		

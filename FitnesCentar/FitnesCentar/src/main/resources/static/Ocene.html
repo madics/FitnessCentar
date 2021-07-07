@@ -1,0 +1,136 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Trener Termini</title>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css\RegistracijaClana.css"/>
+    
+	<script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/ClanTermini.js"></script>
+</head>
+<style>
+
+.register-right{
+	width:700;
+    background: #f8f9fa;
+    border-top-left-radius: 0% 0%;
+    border-bottom-left-radius: 0% 0%;
+	align:center;
+	margin-left:130;
+}
+.col-md-9
+	width:700;
+}
+.izmene{
+display :none;
+}
+</style>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="Clan.html">Moj Profil</a>        
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <!-- <a class="nav-link" href="RegistracijaClana.html">Registracija</a> -->
+        <!-- <a class="nav-link" href="Login.html">Prijava</a> -->
+        <a class="nav-link" href="Ocene.html">Odradjeni Treninzi</a>
+        <a class="nav-link" href="ClanTermini.html">Pregled Termina</a>
+        <a class="nav-link" href="ClanPrijavljeni.html">Prijavljeni Termini</a>
+        <a class="nav-link" ali href="Login.html" onclick="localStorage.setItem('id',null)">Odjavi se </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container register ">
+                <div class="row">
+                    <div class="col-md-9 register-right">
+                        <ul class="nav nav-tabs nav-justified "  style="width:200;"  id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link	active" id="profile-tab"  href="Ocene.html" >Ocenjeni</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="home-tab"  href="Neocenjeni.html" >Neocenjeni</a>
+                            </li>
+                        </ul>
+						<br>
+						<br>
+						<br>
+						<br>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+							<div class="form-group">
+							 <form id="prijaviTermin">
+									<table id="ocene">
+									
+											<thead>
+												<th>Id			</th>
+												<th>Dan			</th>
+												<th>Cena			</th>
+												<th>Naziv		</th>
+												<th>Opis		</th>
+												<th>Tip				</th>
+												<th>Trajanje		</th>
+											</thead>                
+										</table>
+									</form>
+									<!-- NESTAJUCA FORMA -->
+									<div class="collapse" id="collapseExample">
+									<div class="card card-body">
+
+									<form id="izmeniTermin" class="izmene">
+
+									<label >Izmeni:</label>
+									<br>
+									<label >Dan		:</label>
+									<input type="text" id="dani" onChange="" >
+									<br>
+
+									<label >Cena	:</label>
+									<input type="text" id="cene" onChange="" >
+									<br>
+
+									<label >Naziv	:</label>
+									<input type="text" id="nazivi" onChange="" >
+									<br>
+
+									<label >Opis	:</label>
+									<input type="text" id="opisi" onChange="" >
+									<br>
+
+									<label >Tip		:</label>
+									<input type="text" id="tipovi" onChange="" >
+									<br>
+
+									<label >Trajanje:</label>
+									<input type="text" id="trajanja" onChange="" >
+									<br>
+									<input type="submit" value="Sacuvaj">
+									</form>
+									</div>
+									</div>
+									<!-- NESTAJUCA FORMA -->
+                                        </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>	
+</body>
+</html>
